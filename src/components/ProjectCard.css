@@ -1,0 +1,79 @@
+.project-card {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.project-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+}
+
+.info-icon {
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 0px #000000;
+  color: #000000;
+}
+
+.info-icon:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.info-icon:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.info-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.project-description {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: #555555;
+  margin: 0 0 0 0;
+  line-height: 1.5;
+}
+
+.private-label {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.85rem;
+  color: #888888;
+  font-style: italic;
+  margin-top: 1rem;
+  display: block;
+}

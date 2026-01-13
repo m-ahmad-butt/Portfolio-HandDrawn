@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.projects-container {
+  min-height: 100vh;
+  background-color: #fefefe;
+  padding: 3rem 4rem;
+  box-sizing: border-box;
+}
+
+.projects-main-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin: 0 0 3rem 0;
+  letter-spacing: 0.1em;
+}
+
+.project-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.05em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 2rem 1rem;
+  }
+
+  .projects-main-title {
+    font-size: 3rem;
+  }
+
+  .category-title {
+    font-size: 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

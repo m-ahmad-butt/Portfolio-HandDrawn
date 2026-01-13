@@ -1,0 +1,246 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #000000;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #666666;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+}
+
+.modal-title-icons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.modal-title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border: 2px solid #000000;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 0px #000000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.modal-title-icon:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.modal-title-icon:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000000;
+}
+
+.title-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.modal-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+}
+
+.modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 0.8rem 0;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.95rem;
+  color: #333333;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.feature-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+.tech-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tech-item {
+  display: flex;
+  gap: 0.5rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+}
+
+.tech-label {
+  font-weight: 600;
+  color: #000000;
+  min-width: 150px;
+}
+
+.tech-value {
+  color: #333333;
+}
+
+.modal-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.modal-link {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 3px 3px 0px #666666;
+}
+
+.modal-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px #666666;
+}
+
+.modal-link-icon {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.modal-link-icon:hover {
+  transform: scale(1.1);
+}
+
+.link-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+  }
+
+  .tech-label {
+    min-width: 120px;
+  }
+}
