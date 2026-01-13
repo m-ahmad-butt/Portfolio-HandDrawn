@@ -1,16 +1,48 @@
-# React + Vite
+# Personal Portfolio - Hand Drawn Type
+A unique and creative portfolio website featuring hand-drawn aesthetics with an interactive terminal interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Screenshots
+![Landing Page](./demo/1.png)
+![About Section](./demo/2.png)
+![Projects Section](./demo/2.1.png)
+![Contact Terminal](./demo/3.png)
+![Contact Terminal](./demo/4.png)
+![Contact Terminal](./demo/5.png)
+![Contact Terminal](./demo/6.png)
 
-Currently, two official plugins are available:
+## Installation
+```bash
+# Clone the repository
+git clone https://github.com/m-ahmad-butt/Portfolio-HandDrawn.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Navigate to project directory
+cd Portfolio-HandDrawn
 
-## React Compiler
+# Install dependencies
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Start development server
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## EmailJS Configuration
+This portfolio uses EmailJS to handle contact form submissions without requiring a backend server. EmailJS is a JavaScript library that allows you to send emails directly from client-side code by connecting to your email service provider. It provides a simple API to integrate email functionality into your web applications, making it perfect for static sites and portfolios where you want to receive messages from visitors without setting up server infrastructure.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To enable the contact form:
+1. Create a free account on [EmailJS](https://www.emailjs.com/)
+2. Set up your email service (Gmail, Outlook, etc.)
+3. Create an email template
+4. Get your Service ID, Template ID, and Public Key
+5. Create a `.env` file in the root directory with the following format:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+6. Update the Contact component to use these environment variables
+
+## License
+MIT License - feel free to use this for your own portfolio!<br>
+Inspired by (Ulyana Sukhanitskaya): https://www.behance.net/gallery/231582523/Portfolio-2025?tracking_source=search_projects|portfolio&l=7
