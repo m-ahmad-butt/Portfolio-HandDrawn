@@ -1,4 +1,5 @@
 import ProjectCard from '../components/ProjectCard';
+import Contact from '../components/Contact';
 import './Projects.css';
 
 const Projects = () => {
@@ -405,6 +406,8 @@ const Projects = () => {
           ))}
         </div>
       </section>
+
+      <Contact />
     </div>
   );
 };
