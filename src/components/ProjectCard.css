@@ -77,3 +77,65 @@
   margin-top: 1rem;
   display: block;
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project-card {
+    padding: 1.25rem;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .info-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1rem;
+    border-width: 2px;
+    box-shadow: 3px 3px 0px #000000;
+  }
+
+  .project-card:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px #000000;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+  }
+
+  .project-description {
+    font-size: 0.85rem;
+  }
+
+  .info-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .private-label {
+    font-size: 0.8rem;
+  }
+}
