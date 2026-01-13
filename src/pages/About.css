@@ -48,7 +48,7 @@
   margin: 0;
   margin-bottom: 0.3rem;
   letter-spacing: 0.05em;
-  text-align: center;
+  text-align: left;
 }
 
 .about-text {
@@ -127,6 +127,7 @@
 
   .hand-drawn-heading {
     font-size: 2rem;
+    text-align: center;
   }
 
   .about-text {
