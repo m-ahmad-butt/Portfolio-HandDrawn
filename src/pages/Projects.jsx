@@ -408,6 +408,11 @@ const Projects = () => {
       </section>
 
       <Contact />
+
+      <div className="goodbye-section">
+        <h2 className="goodbye-message">Thanks for stopping by!</h2>
+        <p className="goodbye-text">I'm not there otherwise, I wouldn't let you go without coffee.</p>
+      </div>
     </div>
   );
 };

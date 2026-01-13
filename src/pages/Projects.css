@@ -37,6 +37,28 @@
   gap: 2rem;
 }
 
+.goodbye-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+}
+
+.goodbye-message {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 4rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.goodbye-text {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  color: #333333;
+  margin: 0;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
   .projects-container {

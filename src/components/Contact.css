@@ -15,8 +15,20 @@
 .contact-left {
   flex: 0 0 200px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
+
+.left-message {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  letter-spacing: 0.03em;
+  text-align: center;
 }
 
 .curly-arrow {
@@ -115,6 +127,12 @@
 .submit-button:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px #666666;
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* Tablet */
