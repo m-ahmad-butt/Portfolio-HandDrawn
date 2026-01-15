@@ -19,7 +19,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                 className="modal-title-icon"
                 title="View on GitHub"
               >
-                <img src="../../public/github.png" alt="GitHub" className="title-icon" />
+                <img src="/github.png" alt="GitHub" className="title-icon" />
               </a>
             )}
             {project.linkedinUrl && (
@@ -30,7 +30,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                 className="modal-title-icon"
                 title="View on LinkedIn"
               >
-                <img src="../../public/linkedin.png" alt="LinkedIn" className="title-icon" />
+                <img src="/linkedin.png" alt="LinkedIn" className="title-icon" />
               </a>
             )}
           </div>
