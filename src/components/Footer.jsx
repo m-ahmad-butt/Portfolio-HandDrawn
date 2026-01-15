@@ -5,7 +5,7 @@ const Footer = ({ onTerminalClick }) => {
     <div className="sticky-footer">
       <div className="footer-left">
         <button className="terminal-icon-btn" onClick={onTerminalClick} title="Open Terminal">
-          <img src="../../public/terminal.jpeg" alt="Terminal" className="terminal-icon" />
+          <img src="/terminal.jpeg" alt="Terminal" className="terminal-icon" />
         </button>
         <a 
           href="https://github.com/m-ahmad-butt" 
@@ -14,7 +14,7 @@ const Footer = ({ onTerminalClick }) => {
           className="footer-social-link"
           title="GitHub"
         >
-          <img src="../../public/github.png" alt="GitHub" className="footer-social-icon" />
+          <img src="/github.png" alt="GitHub" className="footer-social-icon" />
         </a>
         <a 
           href="https://www.linkedin.com/in/m-ahmad-butt" 
@@ -23,7 +23,7 @@ const Footer = ({ onTerminalClick }) => {
           className="footer-social-link"
           title="LinkedIn"
         >
-          <img src="../../public/linkedin.png" alt="LinkedIn" className="footer-social-icon" />
+          <img src="/linkedin.png" alt="LinkedIn" className="footer-social-icon" />
         </a>
       </div>
       <div className="footer-right">
