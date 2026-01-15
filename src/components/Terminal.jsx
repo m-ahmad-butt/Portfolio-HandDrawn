@@ -237,7 +237,7 @@ const Terminal = ({ isOpen, onClose }) => {
 
           <div className="terminal-output">
             <div className="command-line initial">
-              <span className="prompt">ahmad@portfolio:~$</span>
+              <span className="prompt">ahmad@terminal:~$</span>
               <span className="command"> welcome</span>
             </div>
             {output.map((item, index) => (
@@ -249,7 +249,7 @@ const Terminal = ({ isOpen, onClose }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="command-input">
-            <span className="prompt">ahmad@portfolio:~$</span>
+            <span className="prompt">ahmad@terminal:~$</span>
             <input
               type="text"
               value={inputValue}

@@ -206,7 +206,7 @@ const Projects = () => {
     },
     {
       title: "VR Stumble Guy",
-      description: "VR Stumble Guy is a fully immersive virtual reality experience that brings the chaotic fun of obstacle course racing to Meta Quest 3. Navigate through challenging courses, avoid obstacles, and compete to be the last player standing—all in stunning VR.",
+      description: "VR Stumble Guy is a fully immersive virtual reality experience that brings the chaotic fun of obstacle course racing to Meta Quest 3. Navigate through challenging courses, avoid obstacles, and compete to be the last player standing all in stunning VR.",
       githubUrl: "https://github.com/m-ahmad-butt/Virtual-Reality.git",
       project: {
         features: [
