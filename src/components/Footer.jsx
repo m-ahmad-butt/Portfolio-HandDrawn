@@ -7,19 +7,19 @@ const Footer = ({ onTerminalClick }) => {
         <button className="terminal-icon-btn" onClick={onTerminalClick} title="Open Terminal">
           <img src="/terminal.jpeg" alt="Terminal" className="terminal-icon" />
         </button>
-        <a 
-          href="https://github.com/m-ahmad-butt" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://github.com/m-ahmad-butt"
+          target="_blank"
+          rel="noopener noreferrer"
           className="footer-social-link"
           title="GitHub"
         >
           <img src="/github.png" alt="GitHub" className="footer-social-icon" />
         </a>
-        <a 
-          href="https://www.linkedin.com/in/m-ahmad-butt" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://www.linkedin.com/in/m-ahmad-butt"
+          target="_blank"
+          rel="noopener noreferrer"
           className="footer-social-link"
           title="LinkedIn"
         >

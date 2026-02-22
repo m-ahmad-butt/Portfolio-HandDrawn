@@ -1,13 +1,33 @@
 import ProjectCard from '../components/ProjectCard';
+import HackathonCard from '../components/HackathonCard';
 import Contact from '../components/Contact';
 import './Projects.css';
 
 const Projects = () => {
+  const trophyWinners = [
+    { event: "RC3 at Riphah", rank: "2nd", location: "Riphah International", image: "/riphah.jpeg", isTrophy: true },
+    { event: "UCP Taakra", rank: "3rd", location: "UCP Lahore", image: "/ucp.jpeg", isTrophy: true },
+  ];
+
+  const speedProgramming = [
+    { event: "ACM FAST NUCES", rank: "7th", location: "FAST Lahore" },
+    { event: "UMT Techverse", rank: "11th", location: "UMT Lahore" },
+    { event: "UCP Taakra 2025", rank: "14th", location: "UCP Lahore" },
+    { event: "IEE ACM UCP", rank: "14th", location: "UCP Lahore" },
+    { event: "ITU Coderush", rank: "18th", location: "ITU Lahore" },
+  ];
+
+  const webHackathons = [
+    { event: "UCP Takra", rank: "3rd", location: "UCP Lahore" },
+    { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore" },
+    { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore" },
+  ];
+
   const webProjects = [
     {
       title: "Lost and Found Portal",
       description: "A centralized digital platform designed specifically for the FAST NUCES campus community to report lost items and post found items, making it easier to reconnect lost belongings with their rightful owners through a secure and efficient system.",
-      isPrivate: true,
+      demoUrl: "https://nucesfinder.vercel.app/",
       project: {
         features: [
           "Lost Item Reporting - Students can report lost items with detailed descriptions and images",
@@ -18,12 +38,10 @@ const Projects = () => {
           "Real-time Updates - Track status of reported items"
         ],
         technologies: [
-          { label: "Frontend", value: "React + Vite" },
-          { label: "Backend", value: "Node.js + Express" },
-          { label: "Database", value: "PostgreSQL" },
-          { label: "Image Storage", value: "Cloudinary" },
-          { label: "Authentication", value: "JWT" },
-          { label: "Styling", value: "Tailwind CSS" }
+          { label: "Frontend", value: "React" },
+          { label: "Backend", value: "Express" },
+          { label: "Database", value: "Supabase" },
+          { label: "Deployment", value: "Vercel & AWS (Nginx Proxy)" }
         ]
       }
     },
@@ -133,7 +151,6 @@ const Projects = () => {
       title: "AR Image Tracking",
       description: "Image tracking implementation in augmented reality",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-ImageTracking.git",
-      demoUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-ImageTracking/tree/main/demo",
       project: {
         features: [
           "Advanced Image Recognition - Detect and track multiple image targets simultaneously",
@@ -183,7 +200,6 @@ const Projects = () => {
       title: "AR Portfolio Card",
       description: "Interactive portfolio card in augmented reality",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-PortfolioCard.git",
-      demoUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-PortfolioCard/tree/main/demo",
       project: {
         features: [
           "Card Recognition - Advanced image tracking to recognize and track physical cards using Vuforia",
@@ -378,8 +394,44 @@ const Projects = () => {
 
   return (
     <div className="projects-container">
-      <h1 className="projects-main-title">PROJECTS</h1>
-      
+      <h1 className="projects-main-title">HACKATHONS</h1>
+
+      <section className="project-category">
+        <p className="category-description centered-description">
+          A track record of competing in high pressure programming environments.
+          From logic bending Speed Programming challenges to building
+          innovative solutions in Web Hackathons, I thrive on solving complex puzzles
+          within tight deadlines.
+        </p>
+
+        <div className="hall-of-fame">
+          <h3 className="subcategory-title">Hall of Fame</h3>
+          <div className="trophy-grid">
+            {trophyWinners.map((item, index) => (
+              <HackathonCard key={index} {...item} />
+            ))}
+          </div>
+        </div>
+
+        <div className="other-rankings" style={{ marginTop: '3rem' }}>
+          <h3 className="subcategory-title">Speed Programming</h3>
+          <div className="projects-grid">
+            {speedProgramming.map((item, index) => (
+              <HackathonCard key={index} {...item} />
+            ))}
+          </div>
+
+          <h3 className="subcategory-title" style={{ marginTop: '2.5rem' }}>Web Hackathons</h3>
+          <div className="projects-grid">
+            {webHackathons.map((item, index) => (
+              <HackathonCard key={index} {...item} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <h1 className="projects-main-title" style={{ marginTop: '4rem' }}>PROJECTS</h1>
+
       <section className="project-category">
         <h2 className="category-title">Web Projects</h2>
         <div className="projects-grid">
@@ -388,6 +440,7 @@ const Projects = () => {
           ))}
         </div>
       </section>
+
 
       <section className="project-category">
         <h2 className="category-title">XR Projects</h2>

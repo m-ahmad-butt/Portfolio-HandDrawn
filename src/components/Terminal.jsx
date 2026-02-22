@@ -29,6 +29,7 @@ const Terminal = ({ isOpen, onClose }) => {
           <p><span className="highlight-text">projects</span> - See my projects</p>
           <p><span className="highlight-text">experience</span> - My work experience</p>
           <p><span className="highlight-text">education</span> - My educational background</p>
+          <p><span className="highlight-text">honors</span> - Key hackathon achievements</p>
           <p><span className="highlight-text">certifications</span> - Competition achievements</p>
           <p><span className="highlight-text">contact</span> - Get in touch</p>
           <p><span className="highlight-text">clear</span> - Clear the terminal</p>
@@ -39,9 +40,9 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'about',
       content: (
         <div>
-            <p>
-                I am a 6th-semester BS Software Engineering student at FAST NUCES. I have worked as an XR developer, where my major contributions were in AR/VR development. I am also a competitive programmer and secured 2nd position in the RC3 Speed Programming Competition at Riphah University.
-            </p>
+          <p>
+            I am a 6th-semester BS Software Engineering student at FAST NUCES. I have worked as an XR developer, where my major contributions were in AR/VR development. I am also a competitive programmer and secured 2nd position in the RC3 Speed Programming Competition at Riphah University.
+          </p>
         </div>
       )
     }),
@@ -87,20 +88,29 @@ const Terminal = ({ isOpen, onClose }) => {
         </div>
       )
     }),
+    honors: () => ({
+      type: 'honors',
+      content: (
+        <div>
+          <p><span className="highlight-text">Hackathon Wins & Honors:</span></p>
+          <p>- 2nd Position: Riphah RC3 Speed Programming</p>
+          <p>- 3rd Position: UCP Taakra Web Hackathon</p>
+        </div>
+      )
+    }),
     certifications: () => ({
       type: 'certifications',
       content: (
         <div>
           <p><span className="highlight-text">Speed Programming Competitions:</span></p>
-          <p>- Riphah RC3 Speed Programming (Secured 2nd Position)</p>
-            <p>- ACM FAST Speed Programming</p>
-              <p>- UCP Takra Speed Programming</p>
-                <p>- ITU Coderush Speed Programming</p>
+          <p>- ACM FAST Speed Programming</p>
+          <p>- UCP Takra Speed Programming</p>
+          <p>- ITU Coderush Speed Programming</p>
           <p>- UMT Techverse Speed Programming</p>
           <p>- UCP IEEE Speed Programming</p>
-          <p>- UCP Takra Speed Programming</p>
           <p style={{ marginTop: '1rem' }}><span className="highlight-text">Web Hackathons:</span></p>
           <p>- UMT Techverse Web Hackathon</p>
+          <p>- UET ACM Web Hackathon</p>
           <p>- UCP Takra Web Hackathon</p>
         </div>
       )
@@ -120,7 +130,7 @@ const Terminal = ({ isOpen, onClose }) => {
 
   const handleCommand = (cmd) => {
     const trimmedCmd = cmd.trim().toLowerCase();
-    
+
     if (trimmedCmd === 'clear') {
       setOutput([
         {
@@ -128,7 +138,7 @@ const Terminal = ({ isOpen, onClose }) => {
           content: (
             <>
               <p>Hi, I'm Muhammad Ahmad Butt, a Software Engineering student at FAST NUCES.</p>
-              <p>Welcome to my interactive portfolio terminal!</p>
+              <p>Welcome to my terminal!</p>
               <p>Type <span className="highlight-text">help</span> to see available commands.</p>
             </>
           )
@@ -213,7 +223,7 @@ const Terminal = ({ isOpen, onClose }) => {
           </div>
           <div className="terminal-title">terminal</div>
         </div>
-        
+
         <div className="terminal-body" ref={outputRef}>
           <div className="terminal-nav">
             <span className="nav-item" onClick={() => handleNavClick('help')}>help</span>
@@ -227,6 +237,8 @@ const Terminal = ({ isOpen, onClose }) => {
             <span className="nav-item" onClick={() => handleNavClick('experience')}>experience</span>
             <span className="nav-separator">|</span>
             <span className="nav-item" onClick={() => handleNavClick('education')}>education</span>
+            <span className="nav-separator">|</span>
+            <span className="nav-item" onClick={() => handleNavClick('honors')}>honors</span>
             <span className="nav-separator">|</span>
             <span className="nav-item" onClick={() => handleNavClick('certifications')}>certifications</span>
             <span className="nav-separator">|</span>
