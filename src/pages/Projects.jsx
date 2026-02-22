@@ -5,7 +5,7 @@ import './Projects.css';
 
 const Projects = () => {
   const trophyWinners = [
-    { event: "BIT at Riphah", rank: "2nd", location: "Riphah International", image: "/riphah.jpeg", isTrophy: true },
+    { event: "RC3 at Riphah", rank: "2nd", location: "Riphah International", image: "/riphah.jpeg", isTrophy: true },
     { event: "UCP Taakra", rank: "3rd", location: "UCP Lahore", image: "/ucp.jpeg", isTrophy: true },
   ];
 
@@ -18,6 +18,7 @@ const Projects = () => {
   ];
 
   const webHackathons = [
+    { event: "UCP Takra", rank: "3rd", location: "UCP Lahore" },
     { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore" },
     { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore" },
   ];
@@ -396,10 +397,10 @@ const Projects = () => {
       <h1 className="projects-main-title">HACKATHONS</h1>
 
       <section className="project-category">
-        <p className="category-description">
-          A track record of competing in high-pressure programming environments.
-          From logic-bending <strong>Speed Programming</strong> challenges to building
-          innovative solutions in <strong>Web Hackathons</strong>, I thrive on solving complex puzzles
+        <p className="category-description centered-description">
+          A track record of competing in high pressure programming environments.
+          From logic bending Speed Programming challenges to building
+          innovative solutions in Web Hackathons, I thrive on solving complex puzzles
           within tight deadlines.
         </p>
 
