@@ -6,14 +6,14 @@ const About = () => {
       <div className="about-left">
         <img src="/hero.png" alt="Portrait sketch" className="sketch-image" />
       </div>
-      
+
       <div className="about-right">
         <div className="about-section">
           <h2 className="hand-drawn-heading">ABOUT me</h2>
           <p className="about-text">
             I'm Muhammad Ahmad Butt, a 6th-semester BS Software Engineering student at FAST National University of Computer & Emerging Sciences.
             I'm a competitive programmer and have participated in multiple speed programming and web hackathons.
-            I secured 2nd position in the RC3 Speed Programming Competition at Riphah University.
+            I secured 2nd position in the RC3 Speed Programming Competition at Riphah University and 3rd position in the UCP Taakra Web Hackathon.
             I enjoy building creative solutions that go beyond expectations and push technical boundaries.
           </p>
         </div>
@@ -28,6 +28,8 @@ const About = () => {
               <p><strong>Web:</strong> React, Express.js, Spring Boot, Tailwind CSS, Three.js</p>
               <p><strong>AI / ML:</strong> NumPy, Pandas, Scikit-learn</p>
               <p><strong>XR / Game Dev:</strong> Unity, AR & VR Development</p>
+              <p><strong>Deployment:</strong> Vercel, AWS, Render, Railway</p>
+              <p><strong>Proxy & Tunneling:</strong> Nginx, Ngrok</p>
             </div>
           </div>
         </div>
