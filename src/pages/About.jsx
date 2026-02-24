@@ -28,8 +28,6 @@ const About = () => {
               <p><strong>Web:</strong> React, Express.js, Spring Boot, Tailwind CSS, Three.js</p>
               <p><strong>AI / ML:</strong> NumPy, Pandas, Scikit-learn</p>
               <p><strong>XR / Game Dev:</strong> Unity, AR & VR Development</p>
-              <p><strong>Deployment:</strong> Vercel, AWS, Render, Railway</p>
-              <p><strong>Proxy & Tunneling:</strong> Nginx, Ngrok</p>
             </div>
           </div>
         </div>
