@@ -3,18 +3,13 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-container">
-      <div className="about-left">
-        <img src="/hero.png" alt="Portrait sketch" className="sketch-image" />
-      </div>
-
       <div className="about-right">
         <div className="about-section">
           <h2 className="hand-drawn-heading">ABOUT me</h2>
           <p className="about-text">
-            I'm Muhammad Ahmad Butt, a 6th-semester BS Software Engineering student at FAST National University of Computer & Emerging Sciences.
-            I'm a competitive programmer and have participated in multiple speed programming and web hackathons.
-            I secured 2nd position in the RC3 Speed Programming Competition at Riphah University and 3rd position in the UCP Taakra Web Hackathon.
-            I enjoy building creative solutions that go beyond expectations and push technical boundaries.
+           Hey, I'm Muhammad Ahmad Butt. I started my coding journey with a simple “Hello World” and, honestly, struggled with initial semester projects and even failed at times but I never gave up.
+
+I’ve explored a lot of things and I love diving into new technologies. I enjoy coding, participating in hackathons, and building projects that are both fun and challenging. I’ve won some hackathons and created a few cool projects along the way. My expertise mainly lies in web development and deep learning models, and I’m always excited to learn more.
           </p>
         </div>
 
