@@ -41,7 +41,7 @@ const Terminal = ({ isOpen, onClose }) => {
       content: (
         <div>
           <p>
-            I am a 6th-semester BS Software Engineering student at FAST NUCES. I have worked as an XR developer, where my major contributions were in AR/VR development. I am also a competitive programmer and secured 2nd position in the RC3 Speed Programming Competition at Riphah University.
+            I am a Software Engineering student at FAST NUCES with hands-on experience in AI, NLP, and LLM fine-tuning. I specialize in building end-to-end AI pipelines, from data preprocessing to deployment using FastAPI and scalable backends. I have a strong background in microservices, real-time systems, and XR development.
           </p>
         </div>
       )
@@ -50,10 +50,10 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'skills',
       content: (
         <div>
-          <p><span className="highlight-text">Languages:</span> C, C++, C#, Python, Java, JavaScript, Assembly</p>
-          <p><span className="highlight-text">Web:</span> HTML, CSS, Sass, React, Express.js, Tailwind CSS</p>
-          <p><span className="highlight-text">XR/Game Dev:</span> Unity, AR Foundation, Vuforia</p>
-          <p><span className="highlight-text">AI/ML:</span> NumPy, Pandas, Scikit-learn</p>
+          <p><span className="highlight-text">AI & ML:</span> PyTorch, TensorFlow, Scikit-learn, Hugging Face, Unsloth (QLoRa), NLP</p>
+          <p><span className="highlight-text">Backend:</span> Java (Spring Boot), JavaScript (Express), Python (FastAPI, Flask)</p>
+          <p><span className="highlight-text">Infrastructure:</span> Microservices (Eureka, Kafka), AWS, Docker, CI/CD (GitLab)</p>
+          <p><span className="highlight-text">Languages:</span> Python, Java, JavaScript, C#, C++, C, Assembly</p>
         </div>
       )
     }),
@@ -61,10 +61,10 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'projects',
       content: (
         <div>
-          <p><span className="highlight-text">AR Projects:</span> IKEA AR, Image Tracking, Plants AR, Portfolio Card</p>
-          <p><span className="highlight-text">Web Projects:</span> Book Exchange, MbtiPredictor, Quizify</p>
-          <p><span className="highlight-text">Game Dev:</span> 2D/3D Games, VR Stumble Guy</p>
-          <p><span className="highlight-text">Others:</span> LogiSim, Emotion Analysis NLP</p>
+          <p><span className="highlight-text">AI / ML:</span> PersonaFlow MBTI, Cricket Commentary AI, Pneumonia Detection</p>
+          <p><span className="highlight-text">Platforms:</span> Apex (AI Career), FAST-Ex Marketplace, Quizify</p>
+          <p><span className="highlight-text">XR & Games:</span> AR IKEA, VR Stumble Guy, 2D/3D Unity Games</p>
+          <p><span className="highlight-text">Portal:</span> Lost & Found</p>
         </div>
       )
     }),
@@ -72,8 +72,8 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'experience',
       content: (
         <div>
-          <p><span className="highlight-text">XR Developer</span> @ EggyStudio</p>
-          <p>Major contributions in augmented and virtual reality development</p>
+          <p><span className="highlight-text">XR Developer</span> @ EggyStudio (06/2025 – 08/2025)</p>
+          <p>Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering weekly features in a collaborative cross-team environment.</p>
         </div>
       )
     }),
@@ -81,10 +81,9 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'education',
       content: (
         <div>
-          <p><span className="highlight-text">Bachelor of Science in Software Engineering (BSSE)</span></p>
-          <p>FAST National University of Computer and Emerging Sciences</p>
-          <p>Batch 2023 - 2027</p>
-          <p>Currently a 6th semester student</p>
+          <p><span className="highlight-text">BS Software Engineering</span></p>
+          <p>FAST National University of Computer and Emerging Sciences (NUCES)</p>
+          <p>Lahore, Pakistan | 08/2023 – Present</p>
         </div>
       )
     }),
@@ -93,8 +92,9 @@ const Terminal = ({ isOpen, onClose }) => {
       content: (
         <div>
           <p><span className="highlight-text">Hackathon Wins & Honors:</span></p>
-          <p>- 2nd Position: Riphah RC3 Speed Programming</p>
+          <p>- 2nd Position: RC3 Speed Programming @ FAST NUCES</p>
           <p>- 3rd Position: UCP Taakra Web Hackathon</p>
+
         </div>
       )
     }),
@@ -102,16 +102,14 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'certifications',
       content: (
         <div>
-          <p><span className="highlight-text">Speed Programming Competitions:</span></p>
-          <p>- ACM FAST Speed Programming</p>
-          <p>- UCP Takra Speed Programming</p>
-          <p>- ITU Coderush Speed Programming</p>
-          <p>- UMT Techverse Speed Programming</p>
-          <p>- UCP IEEE Speed Programming</p>
-          <p style={{ marginTop: '1rem' }}><span className="highlight-text">Web Hackathons:</span></p>
-          <p>- UMT Techverse Web Hackathon</p>
-          <p>- UET ACM Web Hackathon</p>
-          <p>- UCP Takra Web Hackathon</p>
+          <p>- 7th @ ACM FAST NUCES</p>
+          <p>- 11th @ UMT Techverse</p>
+          <p>- 14th @ UCP Taakra</p>
+          <p>- 14th @ IEE ACM UCP</p>
+          <p>- 18th @ ITU Coderush</p>
+          <p>- 3rd @ UCP Taakra Web Hackathon</p>
+          <p>- Top 5 @ UET ACM Hackathon</p>
+          <p>- Top 10 @ UMT Techverse Web Hackathon</p>
         </div>
       )
     }),
@@ -119,9 +117,13 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'contact',
       content: (
         <div>
-          <p><span className="highlight-text">Email:</span> m.ahmad.software.engineer@gmail.com</p>
-          <p><span className="highlight-text">GitHub:</span> github.com/m-ahmad-butt</p>
-          <p><span className="highlight-text">LinkedIn:</span> linkedin.com/in/m-ahmad-butt</p>
+          <p><span className="highlight-text">Email:</span> <a href="mailto:m.ahmad.software.engineer@gmail.com" className="terminal-link">m.ahmad.software.engineer@gmail.com</a></p>
+          <p><span className="highlight-text">Phone:</span> <a href="tel:+923436142683" className="terminal-link">+92 343 6142683</a></p>
+          <p><span className="highlight-text">GitHub:</span> <a href="https://github.com/m-ahmad-butt" target="_blank" rel="noopener noreferrer" className="terminal-link">github.com/m-ahmad-butt</a></p>
+          <p><span className="highlight-text">GitLab:</span> <a href="https://gitlab.com/m-ahmad-butt" target="_blank" rel="noopener noreferrer" className="terminal-link">gitlab.com/m-ahmad-butt</a></p>
+          <p><span className="highlight-text">Hugging Face:</span> <a href="https://huggingface.co/m-ahmad-butt" target="_blank" rel="noopener noreferrer" className="terminal-link">huggingface.co/m-ahmad-butt</a></p>
+          <p><span className="highlight-text">LinkedIn:</span> <a href="https://linkedin.com/in/m-ahmad-butt" target="_blank" rel="noopener noreferrer" className="terminal-link">linkedin.com/in/m-ahmad-butt</a></p>
+          <p><span className="highlight-text">Location:</span> Lahore, Pakistan</p>
         </div>
       )
     }),
