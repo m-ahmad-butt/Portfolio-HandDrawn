@@ -130,3 +130,37 @@
     font-size: 0.9rem;
   }
 }
+
+.resume-download-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.download-resume-btn {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #000000;
+  background: #ffffff;
+  border: 3px solid #000000;
+  padding: 0.8rem 2.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.download-resume-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+.download-resume-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000;
+}

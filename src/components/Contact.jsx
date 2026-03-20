@@ -73,21 +73,22 @@ const Contact = () => {
         <div className="contact-left">
           <h3 className="left-message">wanna say something?</h3>
           <svg className="curly-arrow" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
-            <path 
-              d="M 30 50 Q 50 80, 30 110 Q 10 140, 30 170 Q 50 200, 80 200 L 200 200" 
-              stroke="#000000" 
-              strokeWidth="4" 
-              fill="none" 
+            <path
+              d="M 30 50 Q 50 80, 30 110 Q 10 140, 30 170 Q 50 200, 80 200 L 200 200"
+              stroke="#000000"
+              strokeWidth="4"
+              fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <path 
-              d="M 200 200 L 180 185 M 200 200 L 180 215" 
-              stroke="#000000" 
-              strokeWidth="4" 
+            <path
+              d="M 200 200 L 180 185 M 200 200 L 180 215"
+              stroke="#000000"
+              strokeWidth="4"
               strokeLinecap="round"
             />
           </svg>
+
         </div>
         <div className="contact-right">
           <h2 className="contact-title">Send me a message</h2>
@@ -105,7 +106,7 @@ const Contact = () => {
                 required
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="message" className="form-label">Message</label>
               <textarea

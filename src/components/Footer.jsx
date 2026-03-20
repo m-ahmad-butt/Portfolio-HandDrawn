@@ -25,9 +25,27 @@ const Footer = ({ onTerminalClick }) => {
         >
           <img src="/linkedin.png" alt="LinkedIn" className="footer-social-icon" />
         </a>
+        <a
+          href="https://huggingface.co/m-ahmad-butt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-social-link"
+          title="Hugging Face"
+        >
+          <img src="/huggingface.svg" alt="Hugging Face" className="footer-social-icon" />
+        </a>
+        <a
+          href="https://gitlab.com/m-ahmad-butt"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-social-link"
+          title="GitLab"
+        >
+          <img src="/gitlab-svgrepo-com.svg" alt="GitLab" className="footer-social-icon" />
+        </a>
       </div>
       <div className="footer-right">
-        <span className="footer-info">Portfolio v1.0</span>
+        <span className="footer-info">Portfolio v1.3</span>
       </div>
     </div>
   );

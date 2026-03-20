@@ -1,21 +1,20 @@
-import { useState } from 'react';
-import ProjectModal from './ProjectModal';
 import './ProjectCard.css';
 
-const ProjectCard = ({ title, description, githubUrl, demoUrl, isPrivate, project }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+const ProjectCard = ({ title, description, githubUrl, demoUrl, isPrivate, project, onProjectSelect }) => {
   const hasDetails = project?.features || project?.technologies;
 
   return (
     <>
-      <div className="project-card">
+      <div className="project-card" onClick={() => hasDetails && onProjectSelect()}>
         <div className="card-header">
           <h3 className="project-title">{title}</h3>
           {hasDetails && (
             <button
               className="info-icon"
-              onClick={() => setIsModalOpen(true)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onProjectSelect();
+              }}
               aria-label="View project details"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,14 +42,6 @@ const ProjectCard = ({ title, description, githubUrl, demoUrl, isPrivate, projec
           </div>
         )}
       </div>
-
-      {hasDetails && (
-        <ProjectModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          project={{ ...project, title, githubUrl }}
-        />
-      )}
     </>
   );
 };

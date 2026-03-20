@@ -1,0 +1,35 @@
+Muhammad Ahmad Butt AI Engineer | Software Engineer Student
+m.ahmad.software.engineer@gmail.com +923436142683 https://m-ahmad-butt.me/
+Lahore, Pakistan https://www.linkedin.com/in/m-ahmad-butt https://github.com/m-ahmad-butt SUMMARY
+Software Engineering student at FAST NUCES with hands-on experience in AI, NLP, and LLM fine-tuning. Skilled in end-to-end AI pipelines, from data preprocessing to deployment using FastAPI and scalable backends. Experienced with transformers (XLM-R, Qwen), Hugging Face, Unsloth(QLoRa), microservices, and real-time systems. Seeking an AI Engineer internship to build and deploy intelligent applications.
+EXPERIENCE
+EggyStudio, XR Developer 06/2025 – 08/2025 | Lahore, Pakistan Developed AR/ VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.
+EDUCATION
+FAST NUCES Lahore, BS Software Engineering 08/2023 – Present | Lahore, Pakistan
+PGC College, FSC pre Engineering 2021 – 2023 | Lahore, Pakistan
+https://huggingface.co/m-ahmad-butt
+AWARDS 2nd @ RC3(Speed Programming) | 3rd @ UCP TAAKRA(Web Hackathon) HARD SKILLS
+Python [PyTorch, TensorFlow/Keras, Scikit-learn, Hugging Face, Unsloth], AI/ML [NLP, LLM finetuning(QLoRa)], Data Prep [Pandas, Numpy], Java [Spring Boot, Security], JavaScript [React, Express], Microservices [Eureka server, Apache Kafka], Low level languages [C, C++, C#], Cloud & Deployment [AWS, Docker, FastAPI, Flask], Tools [Git, GitLab, Kaggle, Google Colab, Selenium]
+PROJECTS
+MBTI Co. - Personality Timeline Predictor: [mbti-co.vercel.app] Predicts MBTI evolution from chat data using XLM-RoBERTa. Full pipeline: preprocessing, training, evaluation, and deployment via Flask + React. Optimized for multilingual chats.
+AI Cricket Commentary Generator: [huggingface.co/spaces/m-ahmad-butt/cricket-commentary] Generates real-time cricket commentary from match data using Qwen2.5 + QLoRA (Unsloth) with FastAPI backend and React. <450ms inference with voice synthesis.
+Pneumonia Detection from Chest X-Rays: [dm-xray.vercel.app] Classifies X-rays as NORMAL or PNEUMONIA with MobileNetV2. Includes preprocessing (resize, blur, CLAHE, Z-score), weighted loss, and two-phase training.
+
+
+Muhammad Ahmad Butt
+Backend Developer | Software Engineer Student m.ahmad.software.engineer@gmail.com +923436142683
+Lahore, Pakistan https://www.linkedin.com/in/m-ahmad-butt SUMMARY
+Software Engineering student at FAST NUCES with hands-on experience in backend development, microservices architecture, and scalable web applications. Skilled in building REST APIs, distributed systems, and real-time applications using modern technologies. Experienced with cloud deployment, CI/CD pipelines, and event-driven systems. Familiar with integrating AI features into applications. Seeking a backend engineering internship to build production-grade systems.
+EXPERIENCE
+EggyStudio, XR Developer 06/2025 – 08/2025 | Lahore, Pakistan Developed AR/ VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.
+EDUCATION
+FAST NUCES Lahore, BS Software Engineering 08/2023 – Present | Lahore, Pakistan
+PGC College, FSC pre Engineering 2021 – 2023 | Lahore, Pakistan
+https://github.com/m-ahmad-butt
+AWARDS 2nd @ RC3(Speed Prog) | 3rd @ UCP TAAKRA(Web Dev) HARD SKILLS
+JAVA [Spring Boot, Security], JavaScript [React, Express], Microservices [Eureka server, Apache Kafka], Python [Flask, Numpy, Pandas, Scikit-learn, Pytorch, Keras], Low level languages [C, C++, C Sharp], Github, GitLab, Dockers
+PROJECTS
+Microservices Platforms (Apex + FAST-Ex) 08/ 2025 – 11/ 2025 Built microservices-based platforms using Express, Flask, and Spring Boot with Kafka and Eureka. • Apex: AI career assistant with skill extraction, roadmap generation, and job matching (Ollama, Selenium) • FAST-Ex: Marketplace with real-time chat (WebSockets), Clerk auth, AWS + S3 apex-jobs.vercel.app⁠
+| fast-ex.vercel.app⁠
+Lost & Found Portal AWS-deployed platform handling 50+ concurrent users/ session with AI-based spam filtering. nucesfinder.vercel.app⁠
+Quizify Spring Boot-based quiz system with modular architecture and design patterns (Factory, Singleton, Adapter, Template Method) github.com/NU-Projects/Quizify⁠

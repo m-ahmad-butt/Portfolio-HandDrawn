@@ -3,9 +3,9 @@ import HackathonCard from '../components/HackathonCard';
 import Contact from '../components/Contact';
 import './Projects.css';
 
-const Projects = () => {
+const Projects = ({ onProjectSelect }) => {
   const trophyWinners = [
-    { event: "RC3 at Riphah", rank: "2nd", location: "Riphah International", image: "/riphah.jpeg", isTrophy: true },
+    { event: "RC3 Speed Programming", rank: "2nd", location: "FAST Lahore" },
     { event: "UCP Taakra", rank: "3rd", location: "UCP Lahore", image: "/ucp.jpeg", isTrophy: true },
   ];
 
@@ -22,26 +22,91 @@ const Projects = () => {
     { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore" },
     { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore" },
   ];
-
+ 
   const webProjects = [
     {
+      title: "FAST Car-Pooling",
+      githubUrl: "https://github.com/m-ahmad-butt/Car-Pooling.git",
+      demoUrl: "https://fast-car-pool.vercel.app/",
+      description: "A comprehensive microservices-based web application for FAST-NUCES students and faculty, featuring scalable backend architecture and secure institutional transit sharing.",
+      project: {
+        features: [
+          "Microservices Architecture - Decoupled services using Netflix Eureka and Spring Cloud",
+          "Event-Driven Communication - Scalable messaging between services via Apache Kafka",
+          "CI/CD Pipeline - Automated testing and deployment using GitLab CI/CD pipelines",
+          "Containerization - Docker-based deployment for consistent environment scaling",
+          "AWS Cloud - Deployed on AWS with high availability and load balancing",
+          "Academic Verification - Regex-based institutional @nu.edu.pk email validation"
+        ],
+        technologies: [
+          { label: "Architecture", value: "Microservices, Kafka, Eureka" },
+          { label: "Deployment", value: "AWS, Docker, GitLab CI/CD" },
+          { label: "Backend", value: "Spring Boot, Express, Flask" },
+          { label: "Frontend", value: "React 19 + Vite, Tailwind CSS" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "FAST-Ex Marketplace",
+      githubUrl: "https://github.com/m-ahmad-butt/FAST-Ex.git",
+      demoUrl: "https://fast-ex.vercel.app/",
+      description: "A microservices university marketplace for FAST Students to buy, sell, and exchange items. Scalable event-driven architecture with real-time community commitment features.",
+      project: {
+        features: [
+          "Microservices Architecture - Core services communicating via Apache Kafka and Eureka Server",
+          "Real-time Chat - Instant buyer-seller messaging using WebSockets and Socket.io",
+          "AWS Storage - Utilizing AWS S3 buckets for secure and scalable product image storage",
+          "Institutional Auth - Secure login and verification via Clerk institutional auth",
+          "CI/CD - Streamlined deployment to Vercel and AWS for maximum availability"
+        ],
+        technologies: [
+          { label: "Backend", value: "Express, Flask, Spring Boot" },
+          { label: "Infrastructure", value: "Apache Kafka, Netflix Eureka, AWS S3" },
+          { label: "Real-time", value: "WebSockets, Socket.io" },
+          { label: "Auth", value: "Clerk" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "Apex",
+      demoUrl: "https://apex-jobs.vercel.app/",
+      description: "Microservices-based AI career assistant featuring automated skill extraction, roadmap generation, and intelligent job matching.",
+      project: {
+        features: [
+          "Multi-Agent AI - Utilizing Ollama and Google Gemini for sophisticated career insights",
+          "Web Scrapping - Automated data collection using Selenium and BeautifulSoup",
+          "Microservices - Event-driven backend with Eureka Server and Apache Kafka",
+          "Roadmap Generation - Personalized learning paths based on detected skill gaps",
+          "Job Matching - Real-time job alignment analysis using locally hosted LLMs"
+        ],
+        technologies: [
+          { label: "AI & Scraping", value: "Ollama Cloud, Google Gemini, Selenium" },
+          { label: "Architecture", value: "Microservices, Kafka, Eureka Server" },
+          { label: "Backend", value: "Express, Flask, Spring Boot" },
+          { label: "Frontend", value: "React, Tailwind CSS" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
       title: "Lost and Found Portal",
-      description: "A centralized digital platform designed specifically for the FAST NUCES campus community to report lost items and post found items, making it easier to reconnect lost belongings with their rightful owners through a secure and efficient system.",
+      description: "A centralized digital platform for the FAST NUCES campus community. AWS-deployed platform handling 50+ concurrent users per session with AI-based spam filtering.",
       demoUrl: "https://nucesfinder.vercel.app/",
       project: {
         features: [
-          "Lost Item Reporting - Students can report lost items with detailed descriptions and images",
-          "Found Item Posting - Users can post found items to help reunite them with owners",
-          "Search & Filter - Advanced search functionality to find specific items quickly",
-          "Secure Authentication - JWT-based authentication for FAST NUCES students only",
-          "Image Upload - Cloudinary integration for storing item images",
-          "Real-time Updates - Track status of reported items"
+          "Spam Filtering - Integrated AI-based filtering to ensure high-quality campus reports",
+          "High Concurrency - Optimized to handle 50+ concurrent users per session",
+          "AWS Deployment - Fully deployed and managed on AWS infrastructure",
+          "Lost/Found Items - Comprehensive reporting and reunification system",
+          "Institutional Security - Access limited to FAST NUCES verified users"
         ],
         technologies: [
-          { label: "Frontend", value: "React" },
-          { label: "Backend", value: "Express" },
-          { label: "Database", value: "Supabase" },
-          { label: "Deployment", value: "Vercel & AWS (Nginx Proxy)" }
+          { label: "Infrastructure", value: "AWS, Nginx Proxy" },
+          { label: "Backend", value: "Express, Supabase" },
+          { label: "AI", value: "Custom Spam Filtering Model" },
+          { label: "Frontend", value: "React" }
         ]
       }
     },
@@ -71,50 +136,115 @@ const Projects = () => {
       }
     },
     {
-      title: "MbtiPredictor - PersonaFlow",
-      description: "PersonaFlow is an MBTI timeline predictor that analyzes personal or group WhatsApp chat conversations to predict personality types over time. Users can upload WhatsApp chat exports, select a person from the conversation, and visualize their MBTI personality timeline along with their messages.",
+      title: "Quizify",
+      description: "Spring Boot-based quiz management system featuring modular architecture and implementation of core Gang of Four design patterns.",
+      githubUrl: "https://github.com/SDATEAM4/Quizify.git",
+      project: {
+        features: [
+          "Modular Architecture - Clean separation of concerns for easy maintainability",
+          "Design Patterns - Implementation of Factory, Singleton, Adapter, and Template Method patterns",
+          "Role Management - Complete teacher and student workflows",
+          "Spring Framework - Secure and efficient backend built with Spring Boot"
+        ],
+        technologies: [
+          { label: "Backend", value: "Spring Boot, Java Security" },
+          { label: "Frontend", value: "React + Vite" },
+          { label: "Patterns", value: "Factory, Singleton, Adapter, Template Method" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    }
+  ];
+
+  const aiProjects = [
+    {
+      title: "PersonaFlow MBTI",
+      demoUrl: "https://mbti-co.vercel.app/",
+      hfUrl: "https://huggingface.co/m-ahmad-butt/mbti-co-model",
+      description: "WhatsApp chat personality predictor using transformer-based XLM-RoBERTa for multilingual personality monitoring with 82% accuracy.",
       githubUrl: "https://github.com/m-ahmad-butt/MbtiPredictor-PersonaFlow.git",
       project: {
         features: [
-          "WhatsApp Chat Analysis - Upload and parse WhatsApp chat exports",
-          "Timeline Prediction - Visualize MBTI personality changes over time",
-          "Message Correlation - Link predictions with actual messages",
-          "Transformer-Based Model - XLM-RoBERTa for multilingual personality detection",
-          "Class Imbalance Handling - Focal Loss for improved accuracy",
-          "Interactive Visualization - Dynamic personality timeline charts"
+          "Multilingual Pipeline - Optimized for English and Roman Urdu/Hindi WhatsApp chats",
+          "Fine-Tuning Architecture - PEFT (LoRA) integration for efficient model adaptation",
+          "Advanced Training - QLoRA (4-bit NF4) quantization to reduce VRAM requirements",
+          "Evaluation Metrics - Comprehensive analysis including F1-Score, Precision, Recall, Confusion Matrix, and ROC/AUC",
+          "High Performance - Achieved 82% overall accuracy on personality classification",
+          "Deployment - Scalable backend using Flask and React production builds with private Hugging Face Space integration"
         ],
         technologies: [
-          { label: "Frontend", value: "React + Vite, Tailwind CSS" },
-          { label: "Backend", value: "Python Flask" },
-          { label: "Base Model", value: "XLM-RoBERTa (Encoder-only Transformer)" },
-          { label: "ML Framework", value: "PyTorch with Transformers" },
-          { label: "Loss Function", value: "Focal Loss" },
-          { label: "Optimizer", value: "AdamW with gradient clipping" },
-          { label: "Learning Rate", value: "2e-5 with linear decay" },
-          { label: "Max Sequence Length", value: "128 tokens" },
-          { label: "AI Integration", value: "Gemini API" }
+          { label: "Model", value: "XLM-RoBERTa (Transformer)" },
+          { label: "Fine-Tuning", value: "PEFT (LoRA), QLoRA (NF4)" },
+          { label: "Dataset", value: "WhatsApp Chats (English, Roman-Urdu Labels)" },
+          { label: "Metrics", value: "82% Accuracy (F1, Precision, Recall, ROC)" },
+          { label: "Library", value: "PyTorch, Hugging Face, BitsAndBytes" },
+          { label: "Backend", value: "Flask, Hugging Face Spaces (Private)" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
     },
     {
-      title: "Quizify",
-      description: "Quizify is a web-based application designed to make quizzes easy and engaging for both teachers and students. This platform helps teachers create, edit, and manage quizzes efficiently while allowing students to participate, track progress, and improve their learning experience.",
-      githubUrl: "https://github.com/SDATEAM4/Quizify.git",
+      title: "Cricket Commentary AI",
+      demoUrl: "https://huggingface.co/spaces/m-ahmad-butt/cricket-commentary",
+      githubUrl: "https://github.com/m-ahmad-butt/cricket-commentary-model",
+      description: "Real-time cricket commentary generator using Qwen2.5 with QLoRA optimization for high-performance broadcasting production.",
       project: {
         features: [
-          "Quiz Creation - Teachers can create and edit quizzes with various question types",
-          "Student Participation - Students can take quizzes and receive instant feedback",
-          "Progress Tracking - Track student performance and quiz analytics",
-          "Quiz Management - Organize, schedule, and manage multiple quizzes",
-          "Real-time Results - Instant grading and score display",
-          "User Roles - Separate interfaces for teachers and students"
+          "Unsloth Optimization - 4x faster fine-tuning using QLoRA kernels",
+          "Contextual Generation - Processes ball-by-ball metadata for context-aware commentary",
+          "Low Latency - Optimized for <450ms inference times on Hugging Face Spaces",
+          "Regional Synthesis - Integrated accents for Indian, British, and Australian viewers",
+          "React HUD - Dynamic dashboard for real-time commentary display"
         ],
         technologies: [
-          { label: "Frontend", value: "React + Vite" },
-          { label: "Frontend Language", value: "JavaScript" },
-          { label: "Backend", value: "Spring Boot" },
-          { label: "Backend Language", value: "Java" }
+          { label: "Model", value: "Qwen2.5-1.5B + QLoRA (Unsloth)" },
+          { label: "Backend", value: "FastAPI, Python" },
+          { label: "Deployment", value: "Hugging Face Spaces, Docker" },
+          { label: "Voice", value: "Microsoft Edge-TTS" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "Pneumonia Detection",
+      githubUrl: "https://github.com/m-ahmad-butt/DM-Pneumonia-Detection.git",
+      demoUrl: "https://dm-xray.vercel.app/",
+      description: "Medical image classification system using MobileNetV2 with advanced contrast enhancement and normalized preprocessing pipeline.",
+      project: {
+        features: [
+          "MobileNetV2 Transfer Learning - Optimized for medical imaging with pretrained weights",
+          "Pipeline Optimization - Resize, Median Blur, and CLAHE for contrast enhancement",
+          "Two-Phase Training - Strategy using frozen base layers followed by top-layer fine-tuning",
+          "Imbalance Handling - Batch-wise balanced weights to normalize pneumonia detection",
+          "Data Storage - Using .npy formats for statistical consistency across scanner datasets"
+        ],
+        technologies: [
+          { label: "Deep Learning", value: "TensorFlow 2.11+, Keras" },
+          { label: "Preprocessing", value: "OpenCV, CLAHE, Z-Score Normalization" },
+          { label: "Computing", value: "Python, WSL2 with GPU Acceleration" },
+          { label: "Deployment", value: "Vercel, AWS" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "Emotion Analysis NLP",
+      description: "A Python project that analyzes text to detect emotions, cleans the data, and recommends Spotify tracks related to the dominant emotion, complete with hashtags generated from audio features and artist genres.",
+      githubUrl: "https://github.com/m-ahmad-butt/EmotionAnalysis-NLP.git",
+      project: {
+        features: [
+          "Emotion Detection - Analyze text to identify dominant emotions using DistilRoBERTa",
+          "Data Cleaning - Preprocess and clean text data for accurate analysis",
+          "Spotify Integration - Recommend tracks based on detected emotions",
+          "Hashtag Generation - Generate relevant hashtags from audio features and genres",
+          "Text Classification - Advanced NLP pipeline for emotion classification"
+        ],
+        technologies: [
+          { label: "Language", value: "Python" },
+          { label: "Task", value: "Text Classification" },
+          { label: "Model", value: "j-hartmann/emotion-english-distilroberta-base" },
+          { label: "Music API", value: "Spotify API" },
+          { label: "Framework", value: "Transformers (Hugging Face)" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -348,28 +478,6 @@ const Projects = () => {
       }
     },
     {
-      title: "Emotion Analysis NLP",
-      description: "A Python project that analyzes text to detect emotions, cleans the data, and recommends Spotify tracks related to the dominant emotion, complete with hashtags generated from audio features and artist genres.",
-      githubUrl: "https://github.com/m-ahmad-butt/EmotionAnalysis-NLP.git",
-      project: {
-        features: [
-          "Emotion Detection - Analyze text to identify dominant emotions using DistilRoBERTa",
-          "Data Cleaning - Preprocess and clean text data for accurate analysis",
-          "Spotify Integration - Recommend tracks based on detected emotions",
-          "Hashtag Generation - Generate relevant hashtags from audio features and genres",
-          "Text Classification - Advanced NLP pipeline for emotion classification"
-        ],
-        technologies: [
-          { label: "Language", value: "Python" },
-          { label: "Task", value: "Text Classification" },
-          { label: "Model", value: "j-hartmann/emotion-english-distilroberta-base" },
-          { label: "Music API", value: "Spotify API" },
-          { label: "Framework", value: "Transformers (Hugging Face)" }
-        ],
-        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
-      }
-    },
-    {
       title: "PING PONG GAME",
       description: "This project implements a simple PingPong game in 8088 Assembly Language, simulating a two-player game with paddles and a bouncing ball on a black screen.",
       githubUrl: "https://github.com/m-ahmad-butt/COAL-PING-PONG.git",
@@ -430,13 +538,22 @@ const Projects = () => {
         </div>
       </section>
 
-      <h1 className="projects-main-title" style={{ marginTop: '4rem' }}>PROJECTS</h1>
+      <h1 id="projects-section-start" className="projects-main-title" style={{ marginTop: '4rem' }}>PROJECTS</h1>
+
+      <section className="project-category">
+        <h2 className="category-title">AI & ML Projects</h2>
+        <div className="projects-grid">
+          {aiProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
+          ))}
+        </div>
+      </section>
 
       <section className="project-category">
         <h2 className="category-title">Web Projects</h2>
         <div className="projects-grid">
           {webProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
           ))}
         </div>
       </section>
@@ -446,7 +563,7 @@ const Projects = () => {
         <h2 className="category-title">XR Projects</h2>
         <div className="projects-grid">
           {xrProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
           ))}
         </div>
       </section>
@@ -455,7 +572,7 @@ const Projects = () => {
         <h2 className="category-title">Misc Projects</h2>
         <div className="projects-grid">
           {miscProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
           ))}
         </div>
       </section>

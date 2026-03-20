@@ -5,6 +5,11 @@
   padding: 1.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 4px 4px 0px #000000;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -67,6 +72,7 @@
   color: #555555;
   margin: 0 0 0 0;
   line-height: 1.5;
+  flex-grow: 1;
 }
 
 .private-label {

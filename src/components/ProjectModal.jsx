@@ -17,9 +17,13 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="modal-title-icon"
-                title="View on GitHub"
+                title={project.githubUrl.includes('gitlab.com') ? "View on GitLab" : "View on GitHub"}
               >
-                <img src="/github.png" alt="GitHub" className="title-icon" />
+                <img 
+                  src={project.githubUrl.includes('gitlab.com') ? "/gitlab-svgrepo-com.svg" : "/github.png"} 
+                  alt={project.githubUrl.includes('gitlab.com') ? "GitLab" : "GitHub"} 
+                  className="title-icon" 
+                />
               </a>
             )}
             {project.linkedinUrl && (

@@ -1,6 +1,15 @@
 import './About.css';
 
 const About = () => {
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume/resume.pdf';
+    link.download = 'Muhammad_Ahmad_Butt_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="about-container">
       <div className="about-right">
@@ -18,11 +27,12 @@ I’ve explored a lot of things and I love diving into new technologies. I enjoy
           <div className="skills-grid">
             <div className="skill-column">
               <p><strong>Languages:</strong> C, C++, C#, Python, Java, JavaScript, Assembly</p>
+              <p><strong>Frameworks:</strong> React, Spring Boot, Express, Flask, FastAPI</p>
             </div>
             <div className="skill-column">
-              <p><strong>Web:</strong> React, Express.js, Spring Boot, Tailwind CSS, Three.js</p>
-              <p><strong>AI / ML:</strong> NumPy, Pandas, Scikit-learn</p>
-              <p><strong>XR / Game Dev:</strong> Unity, AR & VR Development</p>
+              <p><strong>AI / ML:</strong> PyTorch, TensorFlow/Keras, Scikit-learn, Hugging Face, Unsloth (QLoRa), XLM-R, Qwen</p>
+              <p><strong>Architecture:</strong> Microservices (Netflix Eureka, Apache Kafka), Distributed Systems, CI/CD (GitLab)</p>
+              <p><strong>Cloud & Tools:</strong> AWS (S3, EC2), Docker, Vercel, Selenium, Git, WebSockets</p>
             </div>
           </div>
         </div>
@@ -32,6 +42,12 @@ I’ve explored a lot of things and I love diving into new technologies. I enjoy
           <p className="about-text">
             I worked as an XR Developer at EggyStudio, a startup. My major contributions were in augmented and virtual reality development.
           </p>
+        </div>
+
+        <div className="resume-download-section">
+          <button className="download-resume-btn" onClick={handleDownloadResume}>
+            Download Resume (PDF)
+          </button>
         </div>
       </div>
     </div>
