@@ -22,12 +22,12 @@ const Projects = ({ onProjectSelect }) => {
     { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore" },
     { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore" },
   ];
- 
+
   const webProjects = [
     {
       title: "FAST Car-Pooling",
       githubUrl: "https://github.com/m-ahmad-butt/Car-Pooling.git",
-      demoUrl: "https://fast-car-pool.vercel.app/",
+      demoUrl: "#",
       description: "A comprehensive microservices-based web application for FAST-NUCES students and faculty, featuring scalable backend architecture and secure institutional transit sharing.",
       project: {
         features: [
@@ -41,8 +41,10 @@ const Projects = ({ onProjectSelect }) => {
         technologies: [
           { label: "Architecture", value: "Microservices, Kafka, Eureka" },
           { label: "Deployment", value: "AWS, Docker, GitLab CI/CD" },
-          { label: "Backend", value: "Spring Boot, Express, Flask" },
-          { label: "Frontend", value: "React 19 + Vite, Tailwind CSS" }
+          { label: "Backend", value: "Express.js" },
+          { label: "Frontend", value: "React 19 + Vite, Tailwind CSS" },
+          { label: "Database / ORM", value: "MongoDB (Mongoose), Prisma" },
+          { label: "Cloud Services", value: "AWS EC2" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -50,7 +52,7 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "FAST-Ex Marketplace",
       githubUrl: "https://github.com/m-ahmad-butt/FAST-Ex.git",
-      demoUrl: "https://fast-ex.vercel.app/",
+      demoUrl: "#",
       description: "A microservices university marketplace for FAST Students to buy, sell, and exchange items. Scalable event-driven architecture with real-time community commitment features.",
       project: {
         features: [
@@ -58,33 +60,36 @@ const Projects = ({ onProjectSelect }) => {
           "Real-time Chat - Instant buyer-seller messaging using WebSockets and Socket.io",
           "AWS Storage - Utilizing AWS S3 buckets for secure and scalable product image storage",
           "Institutional Auth - Secure login and verification via Clerk institutional auth",
-          "CI/CD - Streamlined deployment to Vercel and AWS for maximum availability"
+          "CI/CD - Streamlined deployment to Vercel and AWS via GitLab CI/CD"
         ],
         technologies: [
-          { label: "Backend", value: "Express, Flask, Spring Boot" },
+          { label: "Backend", value: "Express.js" },
           { label: "Infrastructure", value: "Apache Kafka, Netflix Eureka, AWS S3" },
+          { label: "Database / ORM", value: "MongoDB (Mongoose), Prisma" },
           { label: "Real-time", value: "WebSockets, Socket.io" },
-          { label: "Auth", value: "Clerk" }
+          { label: "Auth & CI/CD", value: "Clerk, GitLab CI/CD" },
+          { label: "Storage", value: "AWS S3 Buckets" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
     },
     {
       title: "Apex",
-      demoUrl: "https://apex-jobs.vercel.app/",
+      githubUrl: "https://github.com/NU-Projects/Apex.git",
+      demoUrl: "#",
       description: "Microservices-based AI career assistant featuring automated skill extraction, roadmap generation, and intelligent job matching.",
       project: {
         features: [
-          "Multi-Agent AI - Utilizing Ollama and Google Gemini for sophisticated career insights",
-          "Web Scrapping - Automated data collection using Selenium and BeautifulSoup",
+          "Multi-Agent AI - Utilizing Ollama for sophisticated local LLM career insights",
+          "Web Scrapping - Automated data collection using Selenium, BeautifulSoup and Apify",
           "Microservices - Event-driven backend with Eureka Server and Apache Kafka",
           "Roadmap Generation - Personalized learning paths based on detected skill gaps",
-          "Job Matching - Real-time job alignment analysis using locally hosted LLMs"
+          "Job Matching - Real-time job alignment analysis using locally hosted AI agents"
         ],
         technologies: [
-          { label: "AI & Scraping", value: "Ollama Cloud, Google Gemini, Selenium" },
+          { label: "AI & Scraping", value: "Ollama Cloud, Selenium, Apify" },
           { label: "Architecture", value: "Microservices, Kafka, Eureka Server" },
-          { label: "Backend", value: "Express, Flask, Spring Boot" },
+          { label: "Backend", value: "Express, Python Flask" },
           { label: "Frontend", value: "React, Tailwind CSS" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
@@ -124,13 +129,14 @@ const Projects = ({ onProjectSelect }) => {
           "Secure Authentication - Supabase Auth for user management"
         ],
         technologies: [
-          { label: "Frontend", value: "React (Vite), Tailwind CSS, Lucide React/Ant Design Icons" },
+          { label: "Frontend", value: "React (Vite), Tailwind CSS" },
           { label: "Backend", value: "Node.js, Express.js" },
           { label: "Database", value: "Supabase (PostgreSQL)" },
           { label: "Real-time", value: "Supabase Realtime" },
-          { label: "AI Integration", value: "Google Generative AI (Gemini)" },
-          { label: "Maps", value: "MapLibre GL (OpenStreetMap)" },
-          { label: "QR Generation", value: "QRCode Library" }
+          { label: "AI Integration", value: "Google Gemini AI" },
+          { label: "Maps", value: "MapLibre GL" },
+          { label: "QR Generation", value: "QRCode Library" },
+          { label: "Deployment", value: "Vercel" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -138,7 +144,7 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Quizify",
       description: "Spring Boot-based quiz management system featuring modular architecture and implementation of core Gang of Four design patterns.",
-      githubUrl: "https://github.com/SDATEAM4/Quizify.git",
+      githubUrl: "https://github.com/NU-Projects/Quizify.git",
       project: {
         features: [
           "Modular Architecture - Clean separation of concerns for easy maintainability",
@@ -149,7 +155,8 @@ const Projects = ({ onProjectSelect }) => {
         technologies: [
           { label: "Backend", value: "Spring Boot, Java Security" },
           { label: "Frontend", value: "React + Vite" },
-          { label: "Patterns", value: "Factory, Singleton, Adapter, Template Method" }
+          { label: "Patterns", value: "Factory, Singleton, Adapter, Template Method" },
+          { label: "Architecture", value: "N-Tier / Layered" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -185,12 +192,14 @@ const Projects = ({ onProjectSelect }) => {
     },
     {
       title: "Cricket Commentary AI",
-      demoUrl: "https://huggingface.co/spaces/m-ahmad-butt/cricket-commentary",
+      demoUrl: "https://m-ahmad-butt-cricket-commentary.hf.space/format",
+      hfUrl: "https://huggingface.co/m-ahmad-butt/cricket-commentary-model",
       githubUrl: "https://github.com/m-ahmad-butt/cricket-commentary-model",
       description: "Real-time cricket commentary generator using Qwen2.5 with QLoRA optimization for high-performance broadcasting production.",
       project: {
         features: [
           "Unsloth Optimization - 4x faster fine-tuning using QLoRA kernels",
+          "Raw Data Processing - Custom pipelines for parsing Cricsheet YAML match data",
           "Contextual Generation - Processes ball-by-ball metadata for context-aware commentary",
           "Low Latency - Optimized for <450ms inference times on Hugging Face Spaces",
           "Regional Synthesis - Integrated accents for Indian, British, and Australian viewers",
@@ -198,6 +207,8 @@ const Projects = ({ onProjectSelect }) => {
         ],
         technologies: [
           { label: "Model", value: "Qwen2.5-1.5B + QLoRA (Unsloth)" },
+          { label: "Datasets", value: "HF (cricket), Cricsheet (YAML Matches)" },
+          { label: "Optimization", value: "Unsloth 4-bit Kernels" },
           { label: "Backend", value: "FastAPI, Python" },
           { label: "Deployment", value: "Hugging Face Spaces, Docker" },
           { label: "Voice", value: "Microsoft Edge-TTS" }
@@ -208,7 +219,7 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Pneumonia Detection",
       githubUrl: "https://github.com/m-ahmad-butt/DM-Pneumonia-Detection.git",
-      demoUrl: "https://dm-xray.vercel.app/",
+      demoUrl: "#",
       description: "Medical image classification system using MobileNetV2 with advanced contrast enhancement and normalized preprocessing pipeline.",
       project: {
         features: [
@@ -216,13 +227,13 @@ const Projects = ({ onProjectSelect }) => {
           "Pipeline Optimization - Resize, Median Blur, and CLAHE for contrast enhancement",
           "Two-Phase Training - Strategy using frozen base layers followed by top-layer fine-tuning",
           "Imbalance Handling - Batch-wise balanced weights to normalize pneumonia detection",
-          "Data Storage - Using .npy formats for statistical consistency across scanner datasets"
+          "Cloud Infrastructure - Fully deployed on Vercel and Hugging Face for global accessibility"
         ],
         technologies: [
           { label: "Deep Learning", value: "TensorFlow 2.11+, Keras" },
-          { label: "Preprocessing", value: "OpenCV, CLAHE, Z-Score Normalization" },
-          { label: "Computing", value: "Python, WSL2 with GPU Acceleration" },
-          { label: "Deployment", value: "Vercel, AWS" }
+          { label: "Preprocessing", value: "OpenCV, CLAHE, Z-Score" },
+          { label: "Computing", value: "Python, WSL2 (GPU)" },
+          { label: "Deployment", value: "Vercel, Hugging Face" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -242,9 +253,10 @@ const Projects = ({ onProjectSelect }) => {
         technologies: [
           { label: "Language", value: "Python" },
           { label: "Task", value: "Text Classification" },
-          { label: "Model", value: "j-hartmann/emotion-english-distilroberta-base" },
+          { label: "Model", value: "DistilRoBERTa-Base" },
           { label: "Music API", value: "Spotify API" },
-          { label: "Framework", value: "Transformers (Hugging Face)" }
+          { label: "Framework", value: "Transformers (HF)" },
+          { label: "Library", value: "Spotipy, Pandas" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -389,13 +401,14 @@ const Projects = ({ onProjectSelect }) => {
         ],
         technologies: [
           { label: "Engine", value: "Unity 2022.3.59f1 LTS" },
-          { label: "Scripting Language", value: "C# (.NET Standard 2.1)" },
-          { label: "Target Platform", value: "Android" },
-          { label: "Render Pipeline", value: "Built-in Render Pipeline" },
-          { label: "Physics Engine", value: "Unity 2D Physics" },
+          { label: "Scripting Language", value: "C# (.NET)" },
+          { label: "Platform", value: "Android" },
+          { label: "Render Pipeline", value: "Built-in" },
+          { label: "Physics", value: "Unity 2D Physics" },
           { label: "UI System", value: "Unity UI (uGUI)" },
-          { label: "Animation System", value: "Unity Animator with 2D Sprite Animation" },
+          { label: "Animation", value: "Animator (2D Sprite)" },
           { label: "Scripting Backend", value: "IL2CPP" },
+          { label: "Level Design", value: "Endless Procedural" },
           { label: "API Compatibility", value: ".NET Standard 2.1" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
@@ -415,15 +428,16 @@ const Projects = ({ onProjectSelect }) => {
         ],
         technologies: [
           { label: "Engine", value: "Unity 2022.3.59f1 LTS" },
-          { label: "Scripting Language", value: "C# (.NET Standard 2.1)" },
-          { label: "Target Platforms", value: "Android, Windows, macOS, Linux" },
-          { label: "Render Pipeline", value: "Built-in Render Pipeline" },
-          { label: "Physics Engine", value: "Unity 3D Physics" },
+          { label: "Scripting Language", value: "C# (.NET)" },
+          { label: "Platform", value: "Android, Windows" },
+          { label: "Render Pipeline", value: "Built-in" },
+          { label: "Physics", value: "Unity 3D Physics" },
           { label: "UI System", value: "Unity UI (uGUI)" },
-          { label: "Animation System", value: "Unity Animator with Blend Trees" },
-          { label: "Audio System", value: "Unity Audio Source and Audio Listener" },
-          { label: "Input System", value: "Fixed Joystick (Joystick Pack)" },
-          { label: "Scripting Backend", value: "IL2CPP (Android) / Mono (Desktop)" },
+          { label: "Animation", value: "Animator (Blend Trees)" },
+          { label: "Audio", value: "Audio Source/Listener" },
+          { label: "Input", value: "Fixed Joystick" },
+          { label: "Backend", value: "IL2CPP / Mono" },
+          { label: "Design", value: "Low-Poly Procedural" },
           { label: "API Compatibility", value: ".NET Standard 2.1" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
@@ -447,8 +461,9 @@ const Projects = ({ onProjectSelect }) => {
         technologies: [
           { label: "Language", value: "Java" },
           { label: "GUI Framework", value: "Swing" },
-          { label: "Testing", value: "JUnit" },
           { label: "Build Tools", value: "Maven, ANT" },
+          { label: "Testing", value: "JUnit" },
+          { label: "Patterns", value: "Composite, Command" },
           { label: "Version Control", value: "Git & GitHub" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
@@ -472,6 +487,7 @@ const Projects = ({ onProjectSelect }) => {
           { label: "Framework", value: "JavaFX" },
           { label: "Build Tool", value: "Maven" },
           { label: "AI Integration", value: "Google Gemini API" },
+          { label: "Documentation", value: "JavaDoc, UML Standard" },
           { label: "Version Control", value: "Git & GitHub" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"

@@ -223,6 +223,22 @@
   border-radius: 4px;
 }
 
+.terminal-link {
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 0 0.2rem;
+  border-radius: 2px;
+}
+
+.terminal-link:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration-style: solid;
+}
+
 .command-input {
   display: flex;
   align-items: center;

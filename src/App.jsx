@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import LandingPage from './pages/LandingPage'
 import About from './pages/About'
 import Projects from './pages/Projects'
@@ -10,18 +10,23 @@ import './App.css'
 function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const prevProjectRef = useRef(null);
 
   useEffect(() => {
-    if (selectedProject) {
+    if (!selectedProject) {
       window.scrollTo(0, 0);
-    } else {
-      setTimeout(() => {
-        const projectsSection = document.getElementById('projects-section-start');
-        if (projectsSection) {
-          projectsSection.scrollIntoView({ behavior: 'smooth' });
+      if (prevProjectRef.current) {
+        const element = document.getElementById('projects-section-start');
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
         }
-      }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
     }
+    prevProjectRef.current = selectedProject;
   }, [selectedProject]);
 
   if (selectedProject) {
