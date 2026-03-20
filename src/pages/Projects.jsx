@@ -219,7 +219,8 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Pneumonia Detection",
       githubUrl: "https://github.com/m-ahmad-butt/DM-Pneumonia-Detection.git",
-      demoUrl: "#",
+      demoUrl: "https://dm-xray.vercel.app/",
+      hfUrl: "https://huggingface.co/m-ahmad-butt/pneumonia-detection-model",
       description: "Medical image classification system using MobileNetV2 with advanced contrast enhancement and normalized preprocessing pipeline.",
       project: {
         features: [
