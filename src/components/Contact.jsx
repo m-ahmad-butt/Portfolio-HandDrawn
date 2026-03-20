@@ -33,7 +33,7 @@ const Contact = () => {
       const templateParams = {
         from_name: formData.name,
         message: formData.message,
-        to_email: 'ahmadshahid78612345@gmail.com',
+        to_email: 'm.ahmad.software.engineer@gmail.com',
         reply_to: 'noreply@portfolio.com'
       };
 
@@ -53,7 +53,7 @@ const Contact = () => {
       console.error('Error sending email:', error);
       setNotification({
         type: 'error',
-        message: 'Failed to send message. Please try again or contact me directly at ahmadshahid78612345@gmail.com'
+        message: 'Failed to send message. Please try again or contact me directly at m.ahmad.software.engineer@gmail.com'
       });
     } finally {
       setIsSubmitting(false);
