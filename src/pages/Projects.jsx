@@ -6,7 +6,7 @@ import './Projects.css';
 const Projects = ({ onProjectSelect }) => {
   const trophyWinners = [
     { event: "RC3 Speed Programming", rank: "2nd", location: "Riphah University", image: "/riphah.jpeg", isTrophy: true },
-    { event: "UCP Taakra", rank: "3rd", location: "University of Central Punjab", image: "/ucp.jpeg", isTrophy: true },
+    { event: "Taakra 26 Web Hackathon", rank: "3rd", location: "University of Central Punjab", image: "/ucp.jpeg", isTrophy: true },
   ];
 
   const speedProgramming = [
