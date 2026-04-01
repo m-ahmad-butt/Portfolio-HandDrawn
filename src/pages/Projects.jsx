@@ -27,7 +27,6 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "FAST Car-Pooling",
       githubUrl: "https://github.com/m-ahmad-butt/Car-Pooling.git",
-      demoUrl: "#",
       description: "A comprehensive microservices-based web application for FAST-NUCES students and faculty, featuring scalable backend architecture and secure institutional transit sharing.",
       project: {
         features: [
@@ -52,7 +51,6 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "FAST-Ex Marketplace",
       githubUrl: "https://github.com/m-ahmad-butt/FAST-Ex.git",
-      demoUrl: "#",
       description: "A microservices university marketplace for FAST Students to buy, sell, and exchange items. Scalable event-driven architecture with real-time community commitment features.",
       project: {
         features: [
@@ -76,7 +74,6 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Apex",
       githubUrl: "https://github.com/NU-Projects/Apex.git",
-      demoUrl: "#",
       description: "Microservices-based AI career assistant featuring automated skill extraction, roadmap generation, and intelligent job matching.",
       project: {
         features: [
