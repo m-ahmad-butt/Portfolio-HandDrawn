@@ -45,6 +45,31 @@
   text-align: center;
 }
 
+/* ── Hand-drawn sketch circles ── */
+.circled-word {
+  position: relative;
+  display: inline-block;
+  padding: 0.05em 0.35em;
+  white-space: nowrap;
+}
+
+.circled-word::before {
+  content: '';
+  position: absolute;
+  inset: -3px -6px;
+  border: 2.2px solid #000000;
+  border-radius: 50% 48% 52% 50% / 55% 50% 50% 48%;
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+.cw-1::before { border-radius: 52% 48% 55% 45% / 48% 55% 45% 52%; transform: rotate(-2deg); }
+.cw-2::before { border-radius: 45% 55% 50% 50% / 52% 48% 55% 45%; transform: rotate(1.5deg); }
+.cw-3::before { border-radius: 55% 45% 48% 52% / 50% 52% 48% 50%; transform: rotate(-1deg); }
+.cw-4::before { border-radius: 48% 52% 52% 48% / 55% 48% 52% 45%; transform: rotate(2deg); }
+.cw-5::before { border-radius: 50% 50% 45% 55% / 48% 55% 45% 52%; transform: rotate(-2.5deg); }
+.cw-6::before { border-radius: 46% 54% 50% 50% / 52% 46% 54% 48%; transform: rotate(1deg); }
+
 .skills-grid {
   display: flex;
   flex-direction: column;
@@ -133,16 +158,67 @@
 
 .resume-download-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 2.5rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
+
+.resume-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.resume-arrow-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  animation: arrowBounce 1.4s ease-in-out infinite;
+}
+
+.arrow-text {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.25rem;
+  color: #000000;
+  transform: rotate(-6deg);
+  display: inline-block;
+  letter-spacing: 0.03em;
+}
+
+.arrow-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  display: inline-block;
+  color: #000000;
+}
+
+@keyframes arrowBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-7px);
+  }
+
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
 
 .download-resume-btn {
   font-family: 'Shadows Into Light', cursive;
   font-size: 1.6rem;
   font-weight: bold;
   color: #000000;
+  text-decoration: none;
   background: #ffffff;
   border: 3px solid #000000;
   padding: 0.8rem 2.5rem;
@@ -163,4 +239,32 @@
 .download-resume-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0px #000000;
+}
+
+.exp-letter-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+
+.exp-letter-btn {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555555;
+  text-decoration: none;
+  border: 1.5px solid #aaaaaa;
+  padding: 0.4rem 1.1rem;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background: #fafafa;
+  box-shadow: 2px 2px 0px #cccccc;
+}
+
+.exp-letter-btn:hover {
+  color: #000000;
+  border-color: #000000;
+  background: #ffffff;
+  box-shadow: 3px 3px 0px #000000;
+  transform: translate(-1px, -1px);
 }

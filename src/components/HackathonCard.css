@@ -85,6 +85,20 @@
     color: #666666;
 }
 
+.hackathon-year {
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #555555;
+    background-color: #f0f0f0;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    padding: 0.1rem 0.45rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+}
+
 /* Tablet */
 @media (max-width: 1024px) {
     .hackathon-event {

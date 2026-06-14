@@ -1,6 +1,6 @@
 import './HackathonCard.css';
 
-const HackathonCard = ({ event, rank, location, image, isTrophy }) => {
+const HackathonCard = ({ event, rank, location, image, isTrophy, year }) => {
     return (
         <div className={`hackathon-card ${isTrophy ? 'trophy-focus' : ''}`}>
             {image && (
@@ -10,7 +10,10 @@ const HackathonCard = ({ event, rank, location, image, isTrophy }) => {
                 </div>
             )}
             <div className="hackathon-details">
-                <h3 className="hackathon-event">{event}</h3>
+                <h3 className="hackathon-event">
+                    {event}
+                    {year && <span className="hackathon-year">{year}</span>}
+                </h3>
                 <p className="hackathon-rank">
                     <span className="rank-badge">{rank}</span>
                     {location && <span className="hackathon-location"> @ {location}</span>}

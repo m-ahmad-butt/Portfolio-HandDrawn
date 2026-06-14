@@ -52,7 +52,11 @@ const Terminal = ({ isOpen, onClose }) => {
         <div>
           <p><span className="highlight-text">AI & ML:</span> PyTorch, TensorFlow, Scikit-learn, Hugging Face, Unsloth (QLoRa), NLP</p>
           <p><span className="highlight-text">Backend:</span> Java (Spring Boot), JavaScript (Express), Python (FastAPI, Flask)</p>
+          <p><span className="highlight-text">Databases:</span> PostgreSQL, MongoDB</p>
+          <p><span className="highlight-text">ORM / ODM:</span> Prisma, Hibernate</p>
           <p><span className="highlight-text">Infrastructure:</span> Microservices (Eureka, Kafka), AWS, Docker, CI/CD (GitLab)</p>
+          <p><span className="highlight-text">Messaging / Cache:</span> BullMQ, RabbitMQ, Redis</p>
+          <p><span className="highlight-text">Tools & Frameworks:</span> Spring Security, Spring Cloud, Jira</p>
           <p><span className="highlight-text">Languages:</span> Python, Java, JavaScript, C#, C++, C, Assembly</p>
         </div>
       )
@@ -102,14 +106,19 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'certifications',
       content: (
         <div>
-          <p>- 7th @ ACM FAST NUCES</p>
-          <p>- 11th @ UMT Techverse</p>
-          <p>- 14th @ UCP Taakra</p>
-          <p>- 14th @ IEE ACM UCP</p>
-          <p>- 18th @ ITU Coderush</p>
+          <p><span className="highlight-text">Speed Programming:</span></p>
+          <p>- 7th @ ACM FAST NUCES 2025</p>
+          <p>- 11th @ UMT Techverse 2025</p>
+          <p>- 14th @ UCP Taakra 2025</p>
+          <p>- 14th @ IEE ACM UCP 2026</p>
+          <p>- 18th @ ITU Coderush 2025</p>
+          <p><span className="highlight-text">Web Hackathons:</span></p>
           <p>- 3rd @ UCP Taakra Web Hackathon</p>
           <p>- Top 5 @ UET ACM Hackathon</p>
           <p>- Top 10 @ UMT Techverse Web Hackathon</p>
+          <p>- Participant @ ITU Web Hackathon 2026</p>
+          <p><span className="highlight-text">ML Hackathons:</span></p>
+          <p>- Participant @ ITU ML Hackathon</p>
         </div>
       )
     }),

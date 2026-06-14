@@ -10,17 +10,22 @@ const Projects = ({ onProjectSelect }) => {
   ];
 
   const speedProgramming = [
-    { event: "ACM FAST NUCES", rank: "7th", location: "FAST Lahore" },
-    { event: "UMT Techverse", rank: "11th", location: "UMT Lahore" },
-    { event: "UCP Taakra 2025", rank: "14th", location: "UCP Lahore" },
-    { event: "IEE ACM UCP", rank: "14th", location: "UCP Lahore" },
-    { event: "ITU Coderush", rank: "18th", location: "ITU Lahore" },
+    { event: "ACM FAST NUCES", rank: "7th", location: "FAST Lahore", year: "2025" },
+    { event: "UMT Techverse", rank: "11th", location: "UMT Lahore", year: "2025" },
+    { event: "UCP Taakra 2025", rank: "14th", location: "UCP Lahore", year: "2025" },
+    { event: "IEE ACM UCP", rank: "14th", location: "UCP Lahore", year: "2026" },
+    { event: "ITU Coderush", rank: "18th", location: "ITU Lahore", year: "2025" },
   ];
 
   const webHackathons = [
-    { event: "UCP Takra", rank: "3rd", location: "UCP Lahore" },
-    { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore" },
-    { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore" },
+    { event: "SOFTEC", rank: "Participant", location: "FAST Lahore", year: "2026" },
+    { event: "UET ACM Hackathon", rank: "Top 5", location: "UET Lahore", year: "2026" },
+    { event: "UMT Techverse", rank: "Top 10", location: "UMT Lahore", year: "2026" },
+    { event: "ITU Web Hackathon", rank: "Participant", location: "ITU Lahore", year: "2026" },
+  ];
+
+  const mlHackathons = [
+    { event: "ITU ML Hackathon", rank: "Participant", location: "ITU Lahore", year: "2026" },
   ];
 
   const webProjects = [
@@ -42,8 +47,11 @@ const Projects = ({ onProjectSelect }) => {
           { label: "Deployment", value: "AWS, Docker, GitLab CI/CD" },
           { label: "Backend", value: "Express.js" },
           { label: "Frontend", value: "React 19 + Vite, Tailwind CSS" },
-          { label: "Database / ORM", value: "MongoDB (Mongoose), Prisma" },
-          { label: "Cloud Services", value: "AWS EC2" }
+          { label: "Database / ORM", value: "PostgreSQL, MongoDB, Prisma, Hibernate" },
+          { label: "Messaging / Cache", value: "BullMQ, RabbitMQ, Redis" },
+          { label: "Security", value: "Spring Security, Spring Cloud" },
+          { label: "Cloud Services", value: "AWS EC2" },
+          { label: "Tools", value: "Jira, GitLab" }
         ],
         linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
       }
@@ -63,7 +71,8 @@ const Projects = ({ onProjectSelect }) => {
         technologies: [
           { label: "Backend", value: "Express.js" },
           { label: "Infrastructure", value: "Apache Kafka, Netflix Eureka, AWS S3" },
-          { label: "Database / ORM", value: "MongoDB (Mongoose), Prisma" },
+          { label: "Database / ORM", value: "PostgreSQL, MongoDB, Prisma" },
+          { label: "Messaging / Cache", value: "BullMQ, RabbitMQ, Redis" },
           { label: "Real-time", value: "WebSockets, Socket.io" },
           { label: "Auth & CI/CD", value: "Clerk, GitLab CI/CD" },
           { label: "Storage", value: "AWS S3 Buckets" }
@@ -95,7 +104,6 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Lost and Found Portal",
       description: "A centralized digital platform for the FAST NUCES campus community. AWS-deployed platform handling 50+ concurrent users per session with AI-based spam filtering.",
-      demoUrl: "https://nucesfinder.vercel.app/",
       project: {
         features: [
           "Spam Filtering - Integrated AI-based filtering to ensure high-quality campus reports",
@@ -163,7 +171,6 @@ const Projects = ({ onProjectSelect }) => {
   const aiProjects = [
     {
       title: "PersonaFlow MBTI",
-      demoUrl: "https://mbti-co.vercel.app/",
       hfUrl: "https://huggingface.co/m-ahmad-butt/mbti-co-model",
       description: "WhatsApp chat personality predictor using transformer-based XLM-RoBERTa for multilingual personality monitoring with 82% accuracy.",
       githubUrl: "https://github.com/m-ahmad-butt/MbtiPredictor-PersonaFlow.git",
@@ -189,7 +196,6 @@ const Projects = ({ onProjectSelect }) => {
     },
     {
       title: "Cricket Commentary AI",
-      demoUrl: "https://m-ahmad-butt-cricket-commentary.hf.space/format",
       hfUrl: "https://huggingface.co/m-ahmad-butt/cricket-commentary-model",
       githubUrl: "https://github.com/m-ahmad-butt/cricket-commentary-model",
       description: "Real-time cricket commentary generator using Qwen2.5 with QLoRA optimization for high-performance broadcasting production.",
@@ -216,7 +222,6 @@ const Projects = ({ onProjectSelect }) => {
     {
       title: "Pneumonia Detection",
       githubUrl: "https://github.com/m-ahmad-butt/DM-Pneumonia-Detection.git",
-      demoUrl: "https://dm-xray.vercel.app/",
       hfUrl: "https://huggingface.co/m-ahmad-butt/pneumonia-detection-model",
       description: "Medical image classification system using MobileNetV2 with advanced contrast enhancement and normalized preprocessing pipeline.",
       project: {
@@ -264,7 +269,7 @@ const Projects = ({ onProjectSelect }) => {
   const xrProjects = [
     {
       title: "AR IKEA",
-      description: "Augmented reality furniture placement application",
+      description: "An Android AR app built at EggyStudio that lets users browse a 3D furniture catalog and place true-to-scale sofas, tables, and chairs into their real-world environment using ARCore plane detection — helping visualize spaces before buying.",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-IKEA.git",
       project: {
         features: [
@@ -289,7 +294,7 @@ const Projects = ({ onProjectSelect }) => {
     },
     {
       title: "AR Image Tracking",
-      description: "Image tracking implementation in augmented reality",
+      description: "An Android AR experience developed at EggyStudio that detects and tracks multiple physical image targets simultaneously, overlaying dynamic 3D content that persists even when the target temporarily leaves the camera frame.",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-ImageTracking.git",
       project: {
         features: [
@@ -313,7 +318,7 @@ const Projects = ({ onProjectSelect }) => {
     },
     {
       title: "AR Plants",
-      description: "Interactive plant visualization in augmented reality",
+      description: "An Android AR app created at EggyStudio that places realistic 3D plant models into real-world environments via ARCore plane detection, with interactive scaling and rotation so users can visualize plants in their space before purchasing.",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-Plants.git",
       project: {
         features: [
@@ -338,7 +343,7 @@ const Projects = ({ onProjectSelect }) => {
     },
     {
       title: "AR Portfolio Card",
-      description: "Interactive portfolio card in augmented reality",
+      description: "A Vuforia-powered Android AR app built at EggyStudio that recognizes a physical business card and overlays 3D models, animations, and interactive elements anchored to the card — turning a standard portfolio card into an immersive AR experience.",
       githubUrl: "https://github.com/m-ahmad-butt/Augmented-Reality-PortfolioCard.git",
       project: {
         features: [
@@ -546,6 +551,13 @@ const Projects = ({ onProjectSelect }) => {
           <h3 className="subcategory-title" style={{ marginTop: '2.5rem' }}>Web Hackathons</h3>
           <div className="projects-grid">
             {webHackathons.map((item, index) => (
+              <HackathonCard key={index} {...item} />
+            ))}
+          </div>
+
+          <h3 className="subcategory-title" style={{ marginTop: '2.5rem' }}>ML Hackathons</h3>
+          <div className="projects-grid">
+            {mlHackathons.map((item, index) => (
               <HackathonCard key={index} {...item} />
             ))}
           </div>
