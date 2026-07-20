@@ -61,6 +61,19 @@
 .project-detail-icons {
   display: flex;
   gap: 1.2rem;
+  align-items: center;
+}
+
+.detail-private-label {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  color: #666666;
+  font-style: italic;
+  border: 2px dashed #000000;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  align-self: center;
 }
 
 .detail-icon-link {

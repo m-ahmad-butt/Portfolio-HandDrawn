@@ -65,10 +65,12 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'projects',
       content: (
         <div>
-          <p><span className="highlight-text">AI / ML:</span> PersonaFlow MBTI, Cricket Commentary AI, Pneumonia Detection</p>
-          <p><span className="highlight-text">Platforms:</span> Apex (AI Career), FAST-Ex Marketplace, Quizify</p>
-          <p><span className="highlight-text">XR & Games:</span> AR IKEA, VR Stumble Guy, 2D/3D Unity Games</p>
-          <p><span className="highlight-text">Portal:</span> Lost & Found</p>
+          <p><span className="highlight-text">Freelancing:</span> Municipal Lien Search App</p>
+          <p><span className="highlight-text">Agentic AI:</span> SWE-Agents, Corrective RAG (CRAG), Self-RAG</p>
+          <p><span className="highlight-text">AI / ML:</span> PersonaFlow MBTI, Cricket Commentary AI, Pneumonia Detection, Emotion Analysis NLP</p>
+          <p><span className="highlight-text">Web / Platforms:</span> FAST Car-Pooling, FAST-Ex Marketplace, Apex, Lost & Found Portal, Book Exchange, Quizify</p>
+          <p><span className="highlight-text">XR & Games:</span> AR IKEA, AR Image Tracking, AR Plants, AR Portfolio Card, VR Stumble Guy, 2D/3D Games</p>
+          <p><span className="highlight-text">Misc:</span> LogiSim, Codigram, Ping Pong Game</p>
         </div>
       )
     }),

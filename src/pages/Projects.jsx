@@ -28,6 +28,114 @@ const Projects = ({ onProjectSelect }) => {
     { event: "ITU ML Hackathon", rank: "Participant", location: "ITU Lahore", year: "2026" },
   ];
 
+  const freelanceProjects = [
+    {
+      title: "Municipal Lien Search App",
+      isPrivate: true,
+      description: "A comprehensive full-stack enterprise web application designed for Magnolia Research Group to streamline municipal lien searches, property due diligence, and estoppel certificate orders.",
+      project: {
+        features: [
+          "Order Workflow Lifecycle - Track and progress municipal lien search orders from receipt to delivery with status tracking (Order Received, In Progress, Waiting For Information, Completed, Delivered, Refunded)",
+          "QuickBooks Integration - Bi-directional OAuth 2.0 connection to automatically sync customer data, generate/void invoices, and manage credit memos for refunds",
+          "Secure Payment Processing - Stripe integration supporting checkout flows, credit card tokenization, and partial or full refund operations",
+          "Dynamic Pricing Engine - Real-time fee calculations based on state, municipality, custom user discounts, and re-order discount configurations",
+          "Secure Document Management - Integration with AWS S3 using presigned upload/download URLs for storing and retrieving lien search certificates, supporting documents, and invoices",
+          "Automated Report Generation - Dynamic generation of detailed Word (.docx) reports containing verified tax reviews, code violations, utility balances, and permit history",
+          "Comprehensive Audit Trail - Robust activity logging system recording system events and user actions (sign-ups, orders, refunds, status changes) to ensure operational transparency",
+          "OTP Authentication & Security - Secure password hashing with bcrypt, JWT token-based session management (access & refresh cookies), and OTP email verification for safe user registration",
+          "Dynamic CMS & Settings - Administrative dashboard allowing customization of site copy, logos, contact details, pricing structures, and email notifications"
+        ],
+        technologies: [
+          { label: "Frontend", value: "React, Next.js (App Router), Tailwind CSS v4, Stripe.js" },
+          { label: "Backend", value: "Node.js, Express.js" },
+          { label: "Database", value: "MongoDB, Mongoose (ODM)" },
+          { label: "Payment Processing", value: "Stripe API" },
+          { label: "Accounting Sync", value: "QuickBooks API (Intuit OAuth)" },
+          { label: "Cloud Storage", value: "AWS S3 (Simple Storage Service)" },
+          { label: "Email Integration", value: "Resend API" },
+          { label: "Security & Verification", value: "Google reCAPTCHA, JWT (JSON Web Tokens), Bcryptjs" },
+          { label: "Document Generation", value: "Docx Library (JS)" },
+          { label: "Deployment", value: "GitLab CI/CD, AWS EC2 (Ubuntu VM)" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    }
+  ];
+
+  const agenticAiProjects = [
+    {
+      title: "SWE-Agents",
+      githubUrl: "https://github.com/m-ahmad-butt/SWE-Agents",
+      description: "Developed a multi-agent AI system that automates the software development lifecycle. The platform transforms an application idea into requirements, SRS documents, cost estimation, milestone planning, code generation, documentation, and iterative development through specialized AI agents with RAG-powered knowledge retrieval.",
+      project: {
+        features: [
+          "Multi-Agent Workflow - Coordinated execution of specialized agents (requirements, planning, code, doc) to automate full-lifecycle software development",
+          "Automated Asset Generation - Automatic creation of SRS documents, cost estimation, milestone plans, and architectural specifications",
+          "Dynamic Code Generation - Intelligent generation of clean codebase structures and detailed implementation files matching planned specifications",
+          "RAG-Powered Retrieval - Knowledge retrieval using Retrieval-Augmented Generation to ground agent decisions in codebase context and project requirements",
+          "Iterative Refinement - Loops code generation and self-correction through feedback loops to resolve compilation or linting errors"
+        ],
+        technologies: [
+          { label: "Core Language", value: "Python" },
+          { label: "Agent Coordination", value: "LangChain, LangGraph" },
+          { label: "Interface Standards", value: "Model Context Protocol (MCP)" },
+          { label: "API Framework", value: "FastAPI" },
+          { label: "Vector Database", value: "ChromaDB" },
+          { label: "Inference Engine", value: "Groq Cloud LLM" },
+          { label: "Frontend", value: "React, Vite, Tailwind CSS" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "Corrective RAG (CRAG)",
+      githubUrl: "https://github.com/m-ahmad-butt/Agentic-Ai",
+      description: "Built a Corrective Retrieval-Augmented Generation pipeline that validates retrieved documents, identifies insufficient context, automatically performs web search, filters irrelevant information, and generates grounded responses using hybrid retrieval and document evaluation.",
+      project: {
+        features: [
+          "Document Grading - Automated relevance evaluation of retrieved documents to filter out noise and irrelevant context",
+          "Corrective Search Triggering - Dynamically detects when search context is insufficient or out-of-date and triggers fallback web searches",
+          "Query Optimization - Refines search queries based on the user request and grading results for improved search relevance",
+          "Irrelevant Info Filtering - Post-retrieval processing to isolate only key, high-confidence context segments for the LLM prompt",
+          "Grounded Generation - Ensures final response output is strictly grounded in retrieved and verified documents to prevent hallucinations"
+        ],
+        technologies: [
+          { label: "Core Language", value: "Python" },
+          { label: "Pipeline Orchestration", value: "LangChain, LangGraph" },
+          { label: "Vector Index / Store", value: "FAISS" },
+          { label: "Embedding Model", value: "HuggingFace Embeddings" },
+          { label: "Search Engine Integration", value: "Tavily Search API" },
+          { label: "Inference Server", value: "Groq LLM" },
+          { label: "Data Validation", value: "Pydantic Schemas" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    },
+    {
+      title: "Self-RAG",
+      githubUrl: "https://github.com/m-ahmad-butt/Agentic-Ai",
+      description: "Implemented a Self-RAG system that enables an LLM to evaluate its own retrieval quality before answering. The pipeline performs document grading, relevance verification, query refinement, and iterative response generation to improve factual accuracy and reduce hallucinations.",
+      project: {
+        features: [
+          "Self-Evaluation Pipeline - LLM assesses retrieve-vs-generate quality at each step using specialized feedback tokens",
+          "Relevance Verification - Verifies if the retrieved facts are relevant to the user query before incorporating them",
+          "Hallucination Checking - Automatically grades the generated answer against the retrieved facts to ensure strict faithfulness",
+          "Query Refinement Loop - Iteratively optimizes queries and retries retrieval if context completeness scores fall below thresholds",
+          "Iterative Response Generation - Synthesizes multiple answer candidates and ranks them to output the most accurate, well-grounded response"
+        ],
+        technologies: [
+          { label: "Core Language", value: "Python" },
+          { label: "Pipeline Orchestration", value: "LangChain, LangGraph" },
+          { label: "Vector Index / Store", value: "FAISS" },
+          { label: "Embedding Model", value: "HuggingFace Embeddings" },
+          { label: "Inference Engine", value: "Groq LLM" },
+          { label: "Data Validation", value: "Pydantic Schemas" }
+        ],
+        linkedinUrl: "https://www.linkedin.com/in/m-ahmad-butt"
+      }
+    }
+  ];
+
   const webProjects = [
     {
       title: "FAST Car-Pooling",
@@ -565,6 +673,24 @@ const Projects = ({ onProjectSelect }) => {
       </section>
 
       <h1 id="projects-section-start" className="projects-main-title" style={{ marginTop: '4rem' }}>PROJECTS</h1>
+
+      <section className="project-category">
+        <h2 className="category-title">Freelance Projects</h2>
+        <div className="projects-grid">
+          {freelanceProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
+          ))}
+        </div>
+      </section>
+
+      <section className="project-category">
+        <h2 className="category-title">Agentic AI</h2>
+        <div className="projects-grid">
+          {agenticAiProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />
+          ))}
+        </div>
+      </section>
 
       <section className="project-category">
         <h2 className="category-title">AI & ML Projects</h2>

@@ -13,6 +13,9 @@ const ProjectDetail = ({ project, onBack }) => {
         <div className="project-detail-header">
           <h1 className="project-detail-title">{project.title}</h1>
           <div className="project-detail-icons">
+            {project.isPrivate && (
+              <span className="detail-private-label">Private Repository</span>
+            )}
             {project.hfUrl && (
               <a 
                 href={project.hfUrl} 

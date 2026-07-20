@@ -1,6 +1,6 @@
 import './ProjectCard.css';
 
-const ProjectCard = ({ title, description, githubUrl, demoUrl, isPrivate, project, onProjectSelect }) => {
+const ProjectCard = ({ title, description, demoUrl, isPrivate, project, onProjectSelect }) => {
   const hasDetails = project?.features || project?.technologies;
 
   return (
