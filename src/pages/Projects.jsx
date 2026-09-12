@@ -675,7 +675,7 @@ const Projects = ({ onProjectSelect }) => {
       <h1 id="projects-section-start" className="projects-main-title" style={{ marginTop: '4rem' }}>PROJECTS</h1>
 
       <section className="project-category">
-        <h2 className="category-title">Freelance Projects</h2>
+        <h2 className="category-title">Outsourcing Projects</h2>
         <div className="projects-grid">
           {freelanceProjects.map((project, index) => (
             <ProjectCard key={index} {...project} onProjectSelect={() => onProjectSelect(project)} />

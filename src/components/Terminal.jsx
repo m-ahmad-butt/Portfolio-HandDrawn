@@ -65,7 +65,7 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'projects',
       content: (
         <div>
-          <p><span className="highlight-text">Freelancing:</span> Municipal Lien Search App</p>
+          <p><span className="highlight-text">Outsourcing:</span> Municipal Lien Search App</p>
           <p><span className="highlight-text">Agentic AI:</span> SWE-Agents, Corrective RAG (CRAG), Self-RAG</p>
           <p><span className="highlight-text">AI / ML:</span> PersonaFlow MBTI, Cricket Commentary AI, Pneumonia Detection, Emotion Analysis NLP</p>
           <p><span className="highlight-text">Web / Platforms:</span> FAST Car-Pooling, FAST-Ex Marketplace, Apex, Lost & Found Portal, Book Exchange, Quizify</p>
