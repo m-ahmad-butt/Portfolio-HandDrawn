@@ -59,15 +59,22 @@
   font-style: normal;
   font-weight: 800;
   font-size: clamp(2.4rem, 7vw, 5.5rem);
-  line-height: 0.95;
+  line-height: 0.78;
   letter-spacing: -0.04em;
   color: #111;
   pointer-events: none;
   transition: opacity 0.1s linear;
+  gap: 0;
 }
 
 .hero-tag span {
   display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-tag span + span {
+  margin-top: -0.12em;
 }
 
 /* Scaled stage for avatar image */
@@ -102,7 +109,7 @@
 .mouth-anchor {
   position: absolute;
   left: 49.5%;
-  top: 77.8%;
+  top: 82.5%;
   width: 7.2%;
   height: 6.8%;
   transform: translate(-50%, -50%);

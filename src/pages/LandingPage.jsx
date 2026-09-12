@@ -6,7 +6,7 @@ const LandingPage = () => {
   const stickyRef = useRef(null);
   const mouthRef = useRef(null);
   const [progress, setProgress] = useState(0);
-  const [mouthOrigin, setMouthOrigin] = useState({ x: 50, y: 72 });
+  const [mouthOrigin, setMouthOrigin] = useState({ x: 50, y: 78 });
 
   const updateMouthOrigin = () => {
     const sticky = stickyRef.current;
@@ -44,7 +44,9 @@ const LandingPage = () => {
     };
   }, []);
 
-  const mouthRadius = 0.85 + progress * progress * 150;
+  // Hide the extra portal dot at rest; expand from mouth on scroll
+  const mouthRadius =
+    progress < 0.001 ? 0 : 0.85 + progress * progress * 150;
   const faceOpacity = Math.max(0, 1 - progress * 2.2);
   const faceScale = 1 + progress * 0.28;
   const labelOpacity = Math.max(0, 1 - progress * 1.8);
@@ -75,7 +77,11 @@ const LandingPage = () => {
           }}
           aria-hidden={progress > 0.55}
         >
-          <div className="avatar" role="img" aria-label="Avatar of Muhammad Ahmad Butt">
+          <div
+            className="avatar"
+            role="img"
+            aria-label="Avatar of Muhammad Ahmad Butt"
+          >
             <img
               className="avatar-img"
               src="/avatar.png"
@@ -83,13 +89,7 @@ const LandingPage = () => {
               draggable={false}
               onLoad={updateMouthOrigin}
             />
-            {/* Invisible anchor — portal opens from here */}
-            <span
-              className="mouth-anchor"
-              ref={mouthRef}
-              style={{ opacity: progress > 0.06 ? 0 : 1 }}
-              aria-hidden="true"
-            />
+            <span className="mouth-anchor" ref={mouthRef} aria-hidden="true" />
           </div>
         </div>
 
