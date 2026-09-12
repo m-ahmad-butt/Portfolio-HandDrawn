@@ -43,10 +43,6 @@ const About = () => {
         <div className="about-section">
           <h2 className="hand-drawn-heading">EXPERIENCE</h2>
           <p className="about-text">
-            <strong>SWE @ Remote (06/2026 to Present)</strong><br />
-            Worked on outsourced Shopify, WordPress, and custom web development projects.
-          </p>
-          <p className="about-text">
             <strong>XR Developer @ EggyStudio (06/2025 to 08/2025)</strong><br />
             Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.
           </p>

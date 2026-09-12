@@ -54,6 +54,7 @@ function Footer() {
   const following = useRef(false);
   const target = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
+  const kickMove = useRef(() => {});
   const [copied, setCopied] = useState(false);
 
   const centerButton = () => {
@@ -76,19 +77,35 @@ function Footer() {
 
     let raf = 0;
     const tick = () => {
-      current.current.x += (target.current.x - current.current.x) * 0.22;
-      current.current.y += (target.current.y - current.current.y) * 0.22;
+      const dx = target.current.x - current.current.x;
+      const dy = target.current.y - current.current.y;
+      if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) {
+        current.current.x = target.current.x;
+        current.current.y = target.current.y;
+        if (buttonRef.current) {
+          buttonRef.current.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`;
+        }
+        raf = 0;
+        return;
+      }
+      current.current.x += dx * 0.22;
+      current.current.y += dy * 0.22;
       if (buttonRef.current) {
         buttonRef.current.style.transform = `translate3d(${current.current.x}px, ${current.current.y}px, 0)`;
       }
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+    const kick = () => {
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+    kickMove.current = kick;
+    kick();
 
     const onResize = () => {
       if (!following.current) {
         const next = centerButton();
         target.current = next;
+        kick();
       }
     };
 
@@ -132,6 +149,7 @@ function Footer() {
         x: Math.min(Math.max(-8, x), rect.width - btn.offsetWidth + 8),
         y: Math.min(Math.max(-8, y), rect.height - btn.offsetHeight + 8),
       };
+      kickMove.current();
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -217,6 +235,7 @@ function Footer() {
           onMouseLeave={() => {
             following.current = false;
             target.current = centerButton();
+            kickMove.current();
           }}
         >
           <h2 className="site-footer__name">
@@ -244,10 +263,6 @@ function Footer() {
               )}
             </svg>
           </button>
-        </div>
-
-        <div className="site-footer__bottom">
-          <p>Made this using Cursor</p>
         </div>
       </div>
     </footer>
