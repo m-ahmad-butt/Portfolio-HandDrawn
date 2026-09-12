@@ -133,8 +133,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(1.25rem, 4vw, 3rem) 0;
-  gap: 1.85rem;
+  padding: clamp(0.85rem, 3vw, 2.2rem) 0 clamp(0.4rem, 1.5vw, 1rem);
+  gap: 1.1rem;
 }
 
 .portal-content {
@@ -232,8 +232,13 @@
     top: 46%;
   }
 
+  .portal-inner {
+    padding: 0.7rem 0 0.25rem;
+    gap: 0.55rem;
+  }
+
   .portal-lead {
-    font-size: clamp(1.35rem, 6.5vw, 1.85rem);
+    font-size: clamp(1.15rem, 5.6vw, 1.55rem);
   }
 }
 

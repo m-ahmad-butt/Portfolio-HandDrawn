@@ -9,12 +9,12 @@ const About = () => {
           <p className="about-text">
             I am a Software Engineering student at{' '}
             <span className="circled-word cw-1">FAST NUCES</span>
-            {' '}with hands-on experience in{' '}
+            {' '}with hands on experience in{' '}
             <span className="circled-word cw-2">AI</span>,{' '}
             <span className="circled-word cw-3">NLP</span>, and{' '}
-            <span className="circled-word cw-4">LLM fine-tuning</span>.
-            {' '}I specialize in building end-to-end AI pipelines, from data preprocessing to deployment
-            using FastAPI and scalable backends. I have a strong background in microservices, real-time systems,
+            <span className="circled-word cw-4">LLM fine tuning</span>.
+            {' '}I specialize in building end to end AI pipelines, from data preprocessing to deployment
+            using FastAPI and scalable backends. I have a strong background in microservices, real time systems,
             and <span className="circled-word cw-5">XR development</span>.
             {' '}I am currently seeking an{' '}
             <span className="circled-word cw-6">AI Engineer</span>
@@ -43,7 +43,11 @@ const About = () => {
         <div className="about-section">
           <h2 className="hand-drawn-heading">EXPERIENCE</h2>
           <p className="about-text">
-            <strong>XR Developer @ EggyStudio (06/2025 – 08/2025)</strong><br />
+            <strong>SWE @ Remote (06/2026 to Present)</strong><br />
+            Worked on outsourced Shopify, WordPress, and custom web development projects.
+          </p>
+          <p className="about-text">
+            <strong>XR Developer @ EggyStudio (06/2025 to 08/2025)</strong><br />
             Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.
           </p>
           <div className="exp-letter-section">
@@ -66,10 +70,11 @@ const About = () => {
             </div>
             <a
               href="/resume/ai-resume.pdf"
-              download="Muhammad_Ahmad_Butt_AI_Engineer_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="download-resume-btn"
             >
-              Resume — AI Engineer
+              AI Engineer Resume
             </a>
           </div>
           <div className="resume-btn-wrapper">
@@ -79,10 +84,11 @@ const About = () => {
             </div>
             <a
               href="/resume/web-resume.pdf"
-              download="Muhammad_Ahmad_Butt_Web_Developer_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="download-resume-btn"
             >
-              Resume — Web Developer
+              Web Developer Resume
             </a>
           </div>
         </div>

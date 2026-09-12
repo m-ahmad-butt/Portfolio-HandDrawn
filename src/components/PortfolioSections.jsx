@@ -1,3 +1,4 @@
+import { FEATURED_PROJECTS } from '../data/projects';
 import './PortfolioSections.css';
 
 const sections = [
@@ -7,22 +8,22 @@ const sections = [
     tone: 'pink',
     body: (
       <>
-        Software Engineering student at FAST NUCES with hands-on experience in
-        AI, NLP, and LLM fine-tuning. I build end-to-end AI pipelines and
-        scalable backends, with a strong background in microservices, real-time
+        Software Engineering student at FAST NUCES with hands on experience in
+        AI, NLP, and LLM fine tuning. I build end to end AI pipelines and
+        scalable backends, with a strong background in microservices, real time
         systems, and XR development.
       </>
     ),
     links: [
       {
         href: '/resume/ai-resume.pdf',
-        label: 'Resume — AI Engineer',
-        download: 'Muhammad_Ahmad_Butt_AI_Engineer_Resume.pdf',
+        label: 'AI Engineer Resume',
+        external: true,
       },
       {
         href: '/resume/web-resume.pdf',
-        label: 'Resume — Web Developer',
-        download: 'Muhammad_Ahmad_Butt_Web_Developer_Resume.pdf',
+        label: 'Web Developer Resume',
+        external: true,
       },
     ],
     graphic: 'about',
@@ -31,20 +32,23 @@ const sections = [
     id: 'experience',
     title: 'Experience',
     tone: 'mint',
-    body: (
-      <>
-        <strong>XR Developer @ EggyStudio</strong>
-        <span className="exp-dates">06/2025 – 08/2025</span>
-        Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering
-        2+ features weekly while collaborating across teams using Slack and
-        Google Meet.
-      </>
-    ),
-    links: [
+    experiences: [
       {
-        href: '/resume/exp-letter.pdf',
-        label: 'View Experience Letter ↗',
-        external: true,
+        role: 'SWE @ Remote',
+        dates: '06/2026 to Present',
+        body: 'Worked on outsourced Shopify, WordPress, and custom web development projects.',
+      },
+      {
+        role: 'XR Developer @ EggyStudio',
+        dates: '06/2025 to 08/2025',
+        body: 'Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.',
+        links: [
+          {
+            href: '/resume/exp-letter.pdf',
+            label: 'View Experience Letter ↗',
+            external: true,
+          },
+        ],
       },
     ],
     graphic: 'experience',
@@ -55,7 +59,7 @@ const sections = [
     tone: 'blue',
     body: (
       <>
-        Competed and placed across top university hackathons — from podiums to
+        Competed and placed across top university hackathons, from podiums to
         deep finals.
       </>
     ),
@@ -94,11 +98,12 @@ const sections = [
     tone: 'coral',
     body: (
       <>
-        Agentic AI systems, full-stack products, and XR experiences — from
-        multi-agent SWE pipelines to production apps with Stripe, AWS, and
-        real-time backends.
+        Agentic AI systems, full stack products, and XR experiences, from
+        multi agent SWE pipelines to production apps with Stripe, AWS, and
+        real time backends.
       </>
     ),
+    featured: true,
     cta: 'VIEW WORK',
     graphic: 'projects',
   },
@@ -107,33 +112,9 @@ const sections = [
 function SectionGraphic({ type }) {
   if (type === 'about') {
     return (
-      <svg className="section-graphic" viewBox="0 0 220 220" aria-hidden="true">
-        <circle cx="110" cy="110" r="88" fill="#111" />
-        <circle cx="110" cy="100" r="52" fill="#FFC5B1" />
-        <path
-          d="M58 92 C70 48 150 48 162 92 C150 70 130 62 110 62 C90 62 70 70 58 92Z"
-          fill="#111"
-        />
-        <circle cx="90" cy="102" r="8" fill="#111" />
-        <circle cx="130" cy="102" r="8" fill="#111" />
-        <path
-          d="M88 128 Q110 142 132 128"
-          fill="none"
-          stroke="#111"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-        <rect
-          x="40"
-          y="155"
-          width="140"
-          height="28"
-          rx="14"
-          fill="#7CFFB2"
-          stroke="#111"
-          strokeWidth="5"
-        />
-      </svg>
+      <div className="section-graphic section-graphic--avatar" aria-hidden="true">
+        <img src="/avatar.png" alt="" draggable={false} />
+      </div>
     );
   }
 
@@ -237,7 +218,7 @@ function SectionGraphic({ type }) {
   );
 }
 
-function PortfolioSections() {
+function PortfolioSections({ onViewWork }) {
   return (
     <section className="portfolio-sections" id="work">
       {sections.map((section, index) => (
@@ -255,7 +236,37 @@ function PortfolioSections() {
           >
             <div className="portfolio-card__text">
               <h2>{section.title}</h2>
-              <p>{section.body}</p>
+              {section.body && <p>{section.body}</p>}
+              {section.experiences && (
+                <ul className="portfolio-card__jobs">
+                  {section.experiences.map((job) => (
+                    <li key={job.role}>
+                      <strong>{job.role}</strong>
+                      <span className="exp-dates">{job.dates}</span>
+                      <p>{job.body}</p>
+                      {job.links && (
+                        <div className="portfolio-card__links">
+                          {job.links.map((link) => (
+                            <a
+                              key={link.href}
+                              className="portfolio-card__link"
+                              href={link.href}
+                              target={link.external ? '_blank' : undefined}
+                              rel={
+                                link.external
+                                  ? 'noopener noreferrer'
+                                  : undefined
+                              }
+                            >
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {section.wins && (
                 <ul className="portfolio-card__wins">
                   {section.wins.map((win) => (
@@ -276,6 +287,21 @@ function PortfolioSections() {
                   ))}
                 </ul>
               )}
+              {section.featured && (
+                <div className="featured-projects">
+                  {FEATURED_PROJECTS.map((project) => (
+                    <div key={project.title} className="featured-project">
+                      <div className="featured-project__head">
+                        <span className="featured-project__tag">
+                          {project.tag}
+                        </span>
+                      </div>
+                      <strong>{project.title}</strong>
+                      <span>{project.description}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               {section.links && (
                 <div className="portfolio-card__links">
                   {section.links.map((link) => (
@@ -283,7 +309,6 @@ function PortfolioSections() {
                       key={link.href}
                       className="portfolio-card__link"
                       href={link.href}
-                      download={link.download || undefined}
                       target={link.external ? '_blank' : undefined}
                       rel={link.external ? 'noopener noreferrer' : undefined}
                     >
@@ -293,9 +318,13 @@ function PortfolioSections() {
                 </div>
               )}
               {section.cta && (
-                <a className="portfolio-card__cta" href={`#${section.id}`}>
+                <button
+                  type="button"
+                  className="portfolio-card__cta"
+                  onClick={onViewWork}
+                >
                   {section.cta}
-                </a>
+                </button>
               )}
             </div>
             <div className="portfolio-card__art">

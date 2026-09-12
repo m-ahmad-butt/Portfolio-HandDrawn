@@ -1,9 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import SkillsPlayground from '../components/SkillsPlayground';
 import PortfolioSections from '../components/PortfolioSections';
+import Footer from '../components/Footer';
 import './LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({ onViewWork }) => {
   const trackRef = useRef(null);
   const stickyRef = useRef(null);
   const mouthRef = useRef(null);
@@ -115,7 +116,7 @@ const LandingPage = () => {
                 <span className="accent accent-ai">AI</span>,{' '}
                 <span className="accent accent-nlp">NLP</span>,{' '}
                 <span className="accent accent-xr">XR</span> &{' '}
-                <span className="accent accent-web">Full-Stack</span>.
+                <span className="accent accent-web">Full Stack</span>.
               </p>
             </div>
             <div
@@ -136,7 +137,8 @@ const LandingPage = () => {
         </div>
       </div>
     </section>
-      <PortfolioSections />
+      <PortfolioSections onViewWork={onViewWork} />
+      <Footer />
     </>
   );
 };

@@ -3,7 +3,7 @@
   z-index: 2;
   background: #0c0c0c;
   padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 6vw, 4.5rem)
-    clamp(4rem, 10vh, 7rem);
+    clamp(2rem, 5vh, 3.5rem);
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -13,11 +13,11 @@
 .portfolio-card-slot {
   position: sticky;
   top: var(--stick-top, 1.25rem);
-  height: 88vh;
-  min-height: 520px;
+  height: auto;
+  min-height: 0;
   display: flex;
   align-items: flex-start;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   pointer-events: none;
 }
 
@@ -34,11 +34,11 @@
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
   align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
   width: 100%;
-  height: min(78vh, 560px);
-  min-height: 340px;
-  padding: clamp(2rem, 5vw, 3.75rem) clamp(1.75rem, 5vw, 4rem);
+  height: auto;
+  min-height: 0;
+  padding: clamp(1.35rem, 3.2vw, 2.25rem) clamp(1.75rem, 5vw, 4rem);
   border-radius: clamp(28px, 4vw, 48px);
   color: #111;
   overflow: hidden;
@@ -47,7 +47,7 @@
 
 .portfolio-card-slot:last-child .portfolio-card {
   height: auto;
-  min-height: min(78vh, 560px);
+  min-height: 0;
 }
 
 .portfolio-card--pink {
@@ -95,6 +95,42 @@
   margin-bottom: 0.15rem;
 }
 
+.portfolio-card__jobs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.portfolio-card__jobs li {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card__jobs li + li {
+  padding-top: 1.15rem;
+  border-top: 2px solid rgba(17, 17, 17, 0.1);
+}
+
+.portfolio-card__jobs strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  color: #111;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin-bottom: 0.15rem;
+}
+
+.portfolio-card__jobs p {
+  margin: 0;
+}
+
+.portfolio-card__jobs .portfolio-card__links {
+  margin-top: 0.75rem;
+}
+
 .exp-dates {
   display: block;
   margin-bottom: 0.55rem;
@@ -107,7 +143,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1.15rem;
 }
 
 .portfolio-card__link {
@@ -224,19 +260,92 @@
 .portfolio-card__cta {
   display: inline-flex;
   margin-top: 1.5rem;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #111;
+  border-radius: 0;
+  padding: 0 0 0.15rem;
   font-family: 'Syne', sans-serif;
   font-weight: 800;
   font-size: clamp(0.95rem, 1.5vw, 1.15rem);
   letter-spacing: 0.06em;
   text-decoration: none;
   color: #111;
-  border-bottom: 3px solid #111;
-  padding-bottom: 0.15rem;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
 .portfolio-card__cta:hover {
   opacity: 0.7;
+}
+
+.featured-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.35rem;
+}
+
+.featured-project {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.95rem 1.05rem;
+  border-radius: 18px;
+  background: rgba(17, 17, 17, 0.1);
+  border: 2px solid rgba(17, 17, 17, 0.12);
+}
+
+.featured-project__head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.15rem;
+}
+
+.featured-project__tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.featured-project__private {
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #111;
+  color: #ff8f6b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.featured-project strong {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111;
+  line-height: 1.15;
+}
+
+.featured-project span:last-child {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+@media (min-width: 900px) {
+  .featured-projects {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .portfolio-card__art {
@@ -247,10 +356,23 @@
 }
 
 .section-graphic {
-  width: min(100%, 240px);
+  width: min(100%, 200px);
   height: auto;
   filter: drop-shadow(0 10px 0 rgba(17, 17, 17, 0.08));
   transform: rotate(-6deg);
+}
+
+.section-graphic--avatar {
+  width: min(100%, 230px);
+  transform: rotate(16deg);
+}
+
+.section-graphic--avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .portfolio-card--blue .section-graphic {
