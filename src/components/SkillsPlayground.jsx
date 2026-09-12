@@ -2,6 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import Matter from 'matter-js';
 import './SkillsPlayground.css';
 
+const publicUrl = (file) =>
+  `${import.meta.env.BASE_URL}${String(file).replace(/^\//, '')}`;
+const AVATAR_TALK = publicUrl('avatar.png');
+const AVATAR_IDLE = publicUrl('avatar-about.png');
+
 const CATEGORIES = [
   { id: 'xr', label: 'XR', color: '#e8d48f' },
   { id: 'ai', label: 'AI / ML', color: '#f2a0b8' },
@@ -376,8 +381,12 @@ const CATEGORY_TOTALS = Object.fromEntries(
   ])
 );
 
-function createBody(Bodies, shape, x, y, w, h, opts) {
+function createBody(Bodies, shape, x, y, w, h, opts, lite) {
   const r = Math.min(w, h) / 2;
+  if (lite) {
+    if (shape === 'circle') return Bodies.circle(x, y, r, opts);
+    return Bodies.rectangle(x, y, w, h, opts);
+  }
   switch (shape) {
     case 'circle':
       return Bodies.circle(x, y, r, opts);
@@ -407,7 +416,7 @@ function createBody(Bodies, shape, x, y, w, h, opts) {
   }
 }
 
-function SkillsPlayground({ active = true }) {
+function SkillsPlayground({ active = true, lite = false }) {
   const sceneRef = useRef(null);
   const chipsRef = useRef(null);
   const binsRef = useRef(null);
@@ -417,6 +426,9 @@ function SkillsPlayground({ active = true }) {
   const comboRef = useRef(0);
   const popTimer = useRef(0);
   const guideTimer = useRef(0);
+  const activeRef = useRef(active);
+  const controlRef = useRef({ start() {}, stop() {} });
+  activeRef.current = active;
 
   const [score, setScore] = useState(0);
   const [correct, setCorrect] = useState(0);
@@ -542,12 +554,15 @@ function SkillsPlayground({ active = true }) {
     const chipsEl = chipsRef.current;
     if (!scene || !chipsEl) return;
 
-    const { Engine, Bodies, Body, Composite, Query } = Matter;
+    const { Engine, Bodies, Body, Composite, Query, Sleeping } = Matter;
 
     const engine = Engine.create({
-      gravity: { x: 0, y: 0.55 },
+      gravity: { x: 0, y: lite ? 0.72 : 0.55 },
+      enableSleeping: true,
+      positionIterations: lite ? 3 : 6,
+      velocityIterations: lite ? 2 : 4,
     });
-    engine.timing.timeScale = 0.85;
+    engine.timing.timeScale = lite ? 0.72 : 0.85;
 
     const wallOpts = {
       isStatic: true,
@@ -561,9 +576,14 @@ function SkillsPlayground({ active = true }) {
     let bodies = [];
     let chipNodes = [];
     let raf = 0;
+    let looping = false;
+    let visible = true;
+    let last = performance.now();
+    let acc = 0;
 
     let drag = null;
     const pointers = new Map();
+    const frameMs = lite ? 1000 / 30 : 0;
 
     const localPoint = (clientX, clientY) => {
       const rect = scene.getBoundingClientRect();
@@ -603,6 +623,60 @@ function SkillsPlayground({ active = true }) {
       };
     };
 
+    const settled = () =>
+      !drag &&
+      bodies.every((body) => body.isSleeping || body.isStatic);
+
+    const stopLoop = () => {
+      looping = false;
+      if (raf) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+
+    const loop = (now) => {
+      raf = 0;
+      if (!looping || !activeRef.current || !visible) {
+        looping = false;
+        return;
+      }
+
+      const delta = Math.min(1000 / 30, now - last);
+      last = now;
+      if (lite) {
+        acc += delta;
+        if (acc < frameMs) {
+          raf = requestAnimationFrame(loop);
+          return;
+        }
+        Engine.update(engine, frameMs);
+        acc -= frameMs;
+      } else {
+        Engine.update(engine, delta);
+      }
+
+      clampVelocities();
+      sync();
+
+      if (lite && settled()) {
+        looping = false;
+        return;
+      }
+
+      raf = requestAnimationFrame(loop);
+    };
+
+    const startLoop = () => {
+      if (looping || !activeRef.current || !visible) return;
+      looping = true;
+      last = performance.now();
+      acc = 0;
+      raf = requestAnimationFrame(loop);
+    };
+
+    controlRef.current = { start: startLoop, stop: stopLoop };
+
     const build = () => {
       width = scene.clientWidth;
       height = scene.clientHeight;
@@ -632,20 +706,24 @@ function SkillsPlayground({ active = true }) {
         node.style.width = `${w}px`;
         node.style.height = `${h}px`;
 
-        const cols = Math.max(3, Math.floor(width / 160));
+        const cols = Math.max(3, Math.floor(width / (lite ? 110 : 160)));
         const col = i % cols;
         const row = Math.floor(i / cols);
         const x = (width / (cols + 1)) * (col + 1) + (Math.random() - 0.5) * 30;
         const y = 36 + row * 34 + Math.random() * 18;
 
-        const body = createBody(Bodies, shape, x, y, w, h, {
+        const opts = {
           restitution: 0.2,
           friction: 0.45,
-          frictionAir: 0.045,
+          frictionAir: lite ? 0.08 : 0.045,
           density: 0.0018,
+          sleepThreshold: lite ? 30 : 60,
           label: node.dataset.id,
           collisionFilter: { category: 0x0001, mask: 0xffffffff },
-        });
+        };
+        if (lite) opts.inertia = Infinity;
+
+        const body = createBody(Bodies, shape, x, y, w, h, opts, lite);
         body._chipSize = { w, h };
         return body;
       });
@@ -662,12 +740,13 @@ function SkillsPlayground({ active = true }) {
           w: node.offsetWidth,
           h: node.offsetHeight,
         };
-        node.style.transform = `translate3d(${body.position.x - w / 2}px, ${body.position.y - h / 2}px, 0) rotate(${body.angle}rad)`;
+        const angle = lite ? 0 : body.angle;
+        node.style.transform = `translate3d(${body.position.x - w / 2}px, ${body.position.y - h / 2}px, 0) rotate(${angle}rad)`;
       });
     };
 
     const clampVelocities = () => {
-      const max = 12;
+      const max = lite ? 8 : 12;
       bodies.forEach((body) => {
         if (body.isStatic) return;
         const vx = Math.max(-max, Math.min(max, body.velocity.x));
@@ -699,7 +778,7 @@ function SkillsPlayground({ active = true }) {
     };
 
     const onPointerDown = (e) => {
-      if (!active) return;
+      if (!activeRef.current) return;
       if (e.button !== undefined && e.button !== 0) return;
       if (e.target.closest?.('.skill-bin, .skills-hud, .skills-again, .skill-guide')) return;
 
@@ -729,6 +808,7 @@ function SkillsPlayground({ active = true }) {
       e.preventDefault();
       e.stopPropagation();
       node.setPointerCapture?.(e.pointerId);
+      if (Sleeping) Sleeping.set(body, false);
 
       Body.setVelocity(body, { x: 0, y: 0 });
       Body.setAngularVelocity(body, 0);
@@ -749,6 +829,7 @@ function SkillsPlayground({ active = true }) {
       pointers.set(e.pointerId, drag);
       scene.classList.add('is-dragging');
       node.classList.add('is-held');
+      startLoop();
     };
 
     const onPointerMove = (e) => {
@@ -774,6 +855,7 @@ function SkillsPlayground({ active = true }) {
       Body.setVelocity(d.body, { x: 0, y: 0 });
       Body.setAngularVelocity(d.body, 0);
       hoverRef.current(hitBin(e.clientX, e.clientY));
+      if (lite) sync();
     };
 
     const onPointerUp = (e) => {
@@ -799,6 +881,7 @@ function SkillsPlayground({ active = true }) {
           if (drag?.pointerId === e.pointerId) drag = null;
           if (!pointers.size) scene.classList.remove('is-dragging');
           removeChip(d.body, d.node);
+          startLoop();
           return;
         }
 
@@ -821,28 +904,16 @@ function SkillsPlayground({ active = true }) {
       pointers.delete(e.pointerId);
       if (drag?.pointerId === e.pointerId) drag = null;
       if (!pointers.size) scene.classList.remove('is-dragging');
+      startLoop();
     };
 
     build();
-
-    let last = performance.now();
-    const loop = (now) => {
-      raf = requestAnimationFrame(loop);
-      if (!active) {
-        last = now;
-        sync();
-        return;
-      }
-      const delta = Math.min(1000 / 30, now - last);
-      last = now;
-      Engine.update(engine, delta);
-      clampVelocities();
-      sync();
-    };
-    raf = requestAnimationFrame(loop);
+    sync();
 
     scene.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove, { passive: false });
+    scene.addEventListener('pointermove', onPointerMove, { passive: false });
+    scene.addEventListener('pointerup', onPointerUp);
+    scene.addEventListener('pointercancel', onPointerUp);
     window.addEventListener('pointerup', onPointerUp);
     window.addEventListener('pointercancel', onPointerUp);
 
@@ -852,23 +923,45 @@ function SkillsPlayground({ active = true }) {
       resizeTimer = setTimeout(() => {
         build();
         sync();
+        startLoop();
       }, 120);
     };
     const ro = new ResizeObserver(onResize);
     ro.observe(scene);
 
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting && entry.intersectionRatio > 0.15;
+        if (visible) startLoop();
+        else stopLoop();
+      },
+      { threshold: [0, 0.15, 0.5] }
+    );
+    io.observe(scene);
+
+    if (activeRef.current) startLoop();
+
     return () => {
-      cancelAnimationFrame(raf);
+      stopLoop();
       clearTimeout(resizeTimer);
       ro.disconnect();
+      io.disconnect();
       scene.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('pointermove', onPointerMove);
+      scene.removeEventListener('pointermove', onPointerMove);
+      scene.removeEventListener('pointerup', onPointerUp);
+      scene.removeEventListener('pointercancel', onPointerUp);
       window.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('pointercancel', onPointerUp);
       Composite.clear(engine.world, false);
       Engine.clear(engine);
+      controlRef.current = { start() {}, stop() {} };
     };
-  }, [active, resetKey]);
+  }, [lite, resetKey]);
+
+  useEffect(() => {
+    if (active) controlRef.current.start();
+    else controlRef.current.stop();
+  }, [active]);
 
   const playAgain = () => {
     placedIdsRef.current = new Set();
@@ -888,7 +981,10 @@ function SkillsPlayground({ active = true }) {
   const left = SKILLS.length - placed.size;
 
   return (
-    <div className="skills-playground" ref={sceneRef}>
+    <div
+      className={`skills-playground${lite ? ' is-lite' : ''}`}
+      ref={sceneRef}
+    >
       <div className="skills-hud">
         <div className="skills-hud-copy">
           <p className="skills-label">Sort my stack</p>
@@ -959,11 +1055,18 @@ function SkillsPlayground({ active = true }) {
       {guide ? (
         <div className="skill-guide" key={guide.key} role="status" aria-live="polite">
           <div className="skill-guide-face">
-            <img
-              src={mouthOpen ? '/avatar.png' : '/avatar-about.png'}
-              alt=""
-              draggable={false}
-            />
+            <div className={`skill-guide-portrait${mouthOpen ? ' is-talking' : ''}`}>
+              <img
+                src={mouthOpen ? AVATAR_TALK : AVATAR_IDLE}
+                alt="Local"
+                draggable={false}
+                onError={(e) => {
+                  if (e.currentTarget.src !== AVATAR_TALK) {
+                    e.currentTarget.src = AVATAR_TALK;
+                  }
+                }}
+              />
+            </div>
             <span className="skill-guide-name">Local</span>
           </div>
           <div className="skill-guide-bubble">
