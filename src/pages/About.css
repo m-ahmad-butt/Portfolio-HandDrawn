@@ -45,6 +45,10 @@
   text-align: center;
 }
 
+.about-text + .about-text {
+  margin-top: 0.55rem;
+}
+
 /* ── Hand-drawn sketch circles ── */
 .circled-word {
   position: relative;

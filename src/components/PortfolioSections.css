@@ -1,0 +1,427 @@
+.portfolio-sections {
+  position: relative;
+  z-index: 2;
+  background: #0c0c0c;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 6vw, 4.5rem)
+    clamp(2rem, 5vh, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Sticky stack slot — each card pins and the next slides over it */
+.portfolio-card-slot {
+  position: sticky;
+  top: var(--stick-top, 1.25rem);
+  height: auto;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  pointer-events: none;
+}
+
+.portfolio-card-slot:last-child {
+  margin-bottom: 0;
+  height: auto;
+  min-height: 0;
+  padding-bottom: 1rem;
+}
+
+.portfolio-card {
+  pointer-events: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: clamp(1.35rem, 3.2vw, 2.25rem) clamp(1.75rem, 5vw, 4rem);
+  border-radius: clamp(28px, 4vw, 48px);
+  color: #111;
+  overflow: hidden;
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-card-slot:last-child .portfolio-card {
+  height: auto;
+  min-height: 0;
+}
+
+.portfolio-card--pink {
+  background: #f7c6d8;
+}
+
+.portfolio-card--mint {
+  background: #b8f0d4;
+}
+
+.portfolio-card--blue {
+  background: #b7e3f4;
+}
+
+.portfolio-card--coral {
+  background: #ff8f6b;
+}
+
+.portfolio-card__text {
+  max-width: 36rem;
+}
+
+.portfolio-card__text h2 {
+  margin: 0 0 0.85rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.portfolio-card__text p {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.45;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.88);
+}
+
+.portfolio-card__text p strong {
+  display: block;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 0.15rem;
+}
+
+.portfolio-card__jobs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.portfolio-card__jobs li {
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card__jobs li + li {
+  padding-top: 1.15rem;
+  border-top: 2px solid rgba(17, 17, 17, 0.1);
+}
+
+.portfolio-card__jobs strong {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  color: #111;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  margin-bottom: 0.15rem;
+}
+
+.portfolio-card__jobs p {
+  margin: 0;
+}
+
+.portfolio-card__jobs .portfolio-card__links {
+  margin-top: 0.75rem;
+}
+
+.exp-dates {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-size: 0.92em;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.6);
+}
+
+.portfolio-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.portfolio-card__link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.82rem, 1.3vw, 0.95rem);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.portfolio-card__link:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.portfolio-card--mint .portfolio-card__link {
+  color: #b8f0d4;
+}
+
+.portfolio-card--pink .portfolio-card__link {
+  color: #f7c6d8;
+}
+
+.portfolio-card__list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.portfolio-card__list li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 600;
+  color: #111;
+}
+
+.portfolio-card__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #111;
+}
+
+.portfolio-card__wins {
+  margin: 1.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.portfolio-card__wins li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.win-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.4rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: #111;
+  color: #b7e3f4;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.win-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.win-meta strong {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.25;
+}
+
+.win-meta em {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.65);
+}
+
+.portfolio-card__cta {
+  display: inline-flex;
+  margin-top: 1.5rem;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #111;
+  border-radius: 0;
+  padding: 0 0 0.15rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: #111;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.portfolio-card__cta:hover {
+  opacity: 0.7;
+}
+
+.featured-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.35rem;
+}
+
+.featured-project {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.95rem 1.05rem;
+  border-radius: 18px;
+  background: rgba(17, 17, 17, 0.1);
+  border: 2px solid rgba(17, 17, 17, 0.12);
+}
+
+.featured-project__head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.15rem;
+}
+
+.featured-project__tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.featured-project__private {
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  background: #111;
+  color: #ff8f6b;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.featured-project strong {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #111;
+  line-height: 1.15;
+}
+
+.featured-project span:last-child {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+@media (min-width: 900px) {
+  .featured-projects {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.portfolio-card__art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: end;
+}
+
+.section-graphic {
+  width: min(100%, 200px);
+  height: auto;
+  filter: drop-shadow(0 10px 0 rgba(17, 17, 17, 0.08));
+  transform: rotate(-6deg);
+}
+
+.section-graphic--avatar {
+  width: min(100%, 230px);
+  transform: rotate(16deg);
+}
+
+.section-graphic--avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.portfolio-card--blue .section-graphic {
+  transform: rotate(8deg);
+}
+
+.portfolio-card--mint .section-graphic {
+  transform: rotate(5deg);
+}
+
+.portfolio-card--coral .section-graphic {
+  transform: rotate(-10deg);
+}
+
+@media (max-width: 800px) {
+  .portfolio-sections {
+    padding-left: clamp(0.85rem, 4vw, 1.25rem);
+    padding-right: clamp(0.85rem, 4vw, 1.25rem);
+  }
+
+  .portfolio-card-slot {
+    height: auto;
+    min-height: 0;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-card,
+  .portfolio-card-slot:last-child .portfolio-card {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .portfolio-card__art {
+    justify-self: center;
+    order: -1;
+  }
+
+  .section-graphic {
+    width: min(42vw, 160px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card-slot {
+    position: relative;
+    top: auto !important;
+    height: auto;
+    min-height: 0;
+  }
+}

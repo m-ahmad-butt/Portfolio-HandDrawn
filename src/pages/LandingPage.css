@@ -1,105 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Syne:wght@600;700;800&display=swap');
 
-.landing-container {
-  width: 100vw;
+.hero-track {
+  position: relative;
+  height: 320vh;
+  background: #f7f5f2;
+}
+
+.hero-sticky {
+  position: sticky;
+  top: 0;
   height: 100vh;
-  background-color: #000000;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, #ffffff 0%, #f7f5f2 55%, #ebe6df 100%);
+  z-index: 0;
+}
+
+.hero-name {
+  position: absolute;
+  top: clamp(1.25rem, 3vw, 2rem);
+  left: clamp(1.25rem, 3vw, 2.5rem);
+  z-index: 5;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 5rem;
-  box-sizing: border-box;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #111;
+  pointer-events: none;
+  transition: opacity 0.1s linear;
 }
 
-.portfolio-text {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 12rem;
-  font-weight: 400;
-  color: #ffffff;
-  margin: 0;
-  margin-bottom: 1rem;
-  letter-spacing: 0.15em;
-  line-height: 1;
-}
-
-.portfolio-mobile {
-  display: none;
-}
-
-.portfolio-full {
-  display: inline;
-}
-
-.portfolio-part {
+.hero-name span {
   display: block;
 }
 
-.name-text {
-  font-family: 'Arial', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ffffff;
+.hero-tag {
+  position: absolute;
+  bottom: clamp(1.25rem, 3vw, 2rem);
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  z-index: 5;
   margin: 0;
-  margin-top: 4rem;
-  margin-left: 0.5rem;
-  letter-spacing: 0.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-family: 'Syne', sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+  color: #111;
+  pointer-events: none;
+  transition: opacity 0.1s linear;
+  gap: 0;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
-  .landing-container {
-    padding-left: 3rem;
-  }
+.hero-tag span {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
 
-  .portfolio-text {
-    font-size: 8rem;
-  }
+.hero-tag span + span {
+  margin-top: -0.12em;
+}
 
-  .name-text {
-    font-size: 1.2rem;
-    margin-top: 3rem;
+/* Scaled stage for avatar image */
+.avatar-wrap {
+  --avatar-size: min(78vw, 460px);
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  z-index: 2;
+  width: var(--avatar-size);
+  height: calc(var(--avatar-size) * 1.06);
+  will-change: transform, opacity;
+}
+
+.avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.avatar-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 18px 40px rgba(17, 17, 17, 0.08));
+}
+
+/* Sits on the mouth in the PNG — used as portal origin */
+.mouth-anchor {
+  position: absolute;
+  left: 49.5%;
+  top: 82.5%;
+  width: 7.2%;
+  height: 6.8%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.mouth-portal {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #0c0c0c;
+  will-change: clip-path;
+}
+
+.portal-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.85rem, 3vw, 2.2rem) 0 clamp(0.4rem, 1.5vw, 1rem);
+  gap: 1.1rem;
+}
+
+.portal-content {
+  width: min(960px, 92%);
+  text-align: center;
+  will-change: transform, opacity;
+  flex-shrink: 0;
+}
+
+.portal-skills {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  will-change: opacity;
+}
+
+.portal-lead {
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.55rem, 4.2vw, 3.15rem);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #f5f5f5;
+}
+
+.accent {
+  font-style: normal;
+}
+
+.accent-ai {
+  color: #f2a0b8;
+}
+
+.accent-nlp {
+  color: #8fd4e8;
+}
+
+.accent-xr {
+  color: #e8d48f;
+}
+
+.accent-web {
+  color: #9fd4a8;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #111;
+  pointer-events: none;
+}
+
+.scroll-hint-line {
+  display: block;
+  width: 1px;
+  height: 2.25rem;
+  background: linear-gradient(to bottom, #111, transparent);
+  animation: hintPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
   }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .landing-container {
-    padding: 2rem;
-    align-items: center;
-    text-align: center;
+@media (max-width: 640px) {
+  .hero-track {
+    height: 280vh;
   }
 
-  .portfolio-text {
-    font-size: 5.5rem;
-    letter-spacing: 0.1em;
+  .avatar-wrap {
+    --avatar-size: min(88vw, 360px);
+    top: 46%;
   }
 
-  .portfolio-full {
-    display: none;
+  .portal-inner {
+    padding: 0.7rem 0 0.25rem;
+    gap: 0.55rem;
   }
 
-  .portfolio-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .name-text {
-    font-size: 1rem;
-    margin-top: 2rem;
-    margin-left: 0;
-    letter-spacing: 0.15em;
+  .portal-lead {
+    font-size: clamp(1.15rem, 5.6vw, 1.55rem);
   }
 }
 
-/* Small mobile */
-@media (max-width: 480px) {
-  .portfolio-text {
-    font-size: 6rem;
-  }
-
-  .name-text {
-    font-size: 0.9rem;
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint-line {
+    animation: none;
   }
 }

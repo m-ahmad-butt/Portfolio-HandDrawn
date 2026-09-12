@@ -65,7 +65,7 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'projects',
       content: (
         <div>
-          <p><span className="highlight-text">Freelancing:</span> Municipal Lien Search App</p>
+          <p><span className="highlight-text">Outsourcing:</span> Municipal Lien Search App</p>
           <p><span className="highlight-text">Agentic AI:</span> SWE-Agents, Corrective RAG (CRAG), Self-RAG</p>
           <p><span className="highlight-text">AI / ML:</span> PersonaFlow MBTI, Cricket Commentary AI, Pneumonia Detection, Emotion Analysis NLP</p>
           <p><span className="highlight-text">Web / Platforms:</span> FAST Car-Pooling, FAST-Ex Marketplace, Apex, Lost & Found Portal, Book Exchange, Quizify</p>
@@ -78,6 +78,8 @@ const Terminal = ({ isOpen, onClose }) => {
       type: 'experience',
       content: (
         <div>
+          <p><span className="highlight-text">SWE</span> @ Remote (06/2026 – Present)</p>
+          <p>Worked on outsourced Shopify, WordPress, and custom web development projects.</p>
           <p><span className="highlight-text">XR Developer</span> @ EggyStudio (06/2025 – 08/2025)</p>
           <p>Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering weekly features in a collaborative cross-team environment.</p>
         </div>
