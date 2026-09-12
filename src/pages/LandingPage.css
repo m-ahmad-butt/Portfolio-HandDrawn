@@ -130,15 +130,27 @@
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(1.25rem, 4vw, 3rem) 0;
+  gap: 1.85rem;
 }
 
 .portal-content {
-  max-width: 52rem;
+  width: min(960px, 92%);
   text-align: center;
   will-change: transform, opacity;
+  flex-shrink: 0;
+}
+
+.portal-skills {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  will-change: opacity;
 }
 
 .portal-lead {
@@ -169,41 +181,6 @@
 
 .accent-web {
   color: #9fd4a8;
-}
-
-.portal-marquee {
-  margin-top: clamp(2rem, 5vw, 3.5rem);
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 28s linear infinite;
-}
-
-.marquee-group {
-  display: flex;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  padding-right: clamp(2rem, 5vw, 3.5rem);
-  font-family: 'DM Sans', sans-serif;
-  font-size: clamp(0.85rem, 1.4vw, 1rem);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  white-space: nowrap;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .scroll-hint {
@@ -261,7 +238,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track,
   .scroll-hint-line {
     animation: none;
   }

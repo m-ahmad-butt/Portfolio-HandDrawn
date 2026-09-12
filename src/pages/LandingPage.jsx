@@ -1,4 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import SkillsPlayground from '../components/SkillsPlayground';
+import PortfolioSections from '../components/PortfolioSections';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -54,7 +56,8 @@ const LandingPage = () => {
   const contentY = (1 - contentOpacity) * 28;
 
   return (
-    <section className="hero-track" ref={trackRef}>
+    <>
+      <section className="hero-track" ref={trackRef}>
       <div className="hero-sticky" ref={stickyRef}>
         <div className="hero-bg" />
 
@@ -114,22 +117,12 @@ const LandingPage = () => {
                 <span className="accent accent-xr">XR</span> &{' '}
                 <span className="accent accent-web">Full-Stack</span>.
               </p>
-              <div className="portal-marquee" aria-hidden="true">
-                <div className="marquee-track">
-                  {[0, 1].map((i) => (
-                    <div className="marquee-group" key={i}>
-                      <span>PyTorch</span>
-                      <span>FastAPI</span>
-                      <span>Unity</span>
-                      <span>React</span>
-                      <span>Spring Boot</span>
-                      <span>Hugging Face</span>
-                      <span>Docker</span>
-                      <span>PostgreSQL</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            </div>
+            <div
+              className="portal-skills"
+              style={{ opacity: contentOpacity }}
+            >
+              <SkillsPlayground active={progress > 0.45} />
             </div>
           </div>
         </div>
@@ -143,6 +136,8 @@ const LandingPage = () => {
         </div>
       </div>
     </section>
+      <PortfolioSections />
+    </>
   );
 };
 
