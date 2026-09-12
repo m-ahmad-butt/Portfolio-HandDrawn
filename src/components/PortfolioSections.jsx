@@ -34,11 +34,6 @@ const sections = [
     tone: 'mint',
     experiences: [
       {
-        role: 'SWE @ Remote',
-        dates: '06/2026 to Present',
-        body: 'Worked on outsourced Shopify, WordPress, and custom web development projects.',
-      },
-      {
         role: 'XR Developer @ EggyStudio',
         dates: '06/2025 to 08/2025',
         body: 'Developed AR/VR apps for Android and Meta Quest 3 in Unity, delivering 2+ features weekly while collaborating across teams using Slack and Google Meet.',
