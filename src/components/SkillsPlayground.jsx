@@ -557,7 +557,7 @@ function SkillsPlayground({ active = true, lite = false }) {
     const { Engine, Bodies, Body, Composite, Query, Sleeping } = Matter;
 
     const engine = Engine.create({
-      gravity: { x: 0, y: lite ? 0.72 : 0.55 },
+      gravity: { x: 0, y: lite ? 0.06 : 0.55 },
       enableSleeping: true,
       positionIterations: lite ? 3 : 6,
       velocityIterations: lite ? 2 : 4,
@@ -700,22 +700,42 @@ function SkillsPlayground({ active = true, lite = false }) {
       ];
       Composite.add(engine.world, walls);
 
+      const playTop = hudH + 28;
+      const playBottom = Math.max(playTop + 80, floorY - 16);
+      const cols = lite
+        ? Math.max(3, Math.min(4, Math.floor(width / 86)))
+        : Math.max(3, Math.floor(width / 160));
+      const rows = Math.max(1, Math.ceil(chipNodes.length / cols));
+      const colW = width / cols;
+      const rowH = (playBottom - playTop) / rows;
+
       bodies = chipNodes.map((node, i) => {
         const shape = node.dataset.shape || 'pill';
         const { w, h } = measureChip(node);
         node.style.width = `${w}px`;
         node.style.height = `${h}px`;
 
-        const cols = Math.max(3, Math.floor(width / (lite ? 110 : 160)));
         const col = i % cols;
         const row = Math.floor(i / cols);
-        const x = (width / (cols + 1)) * (col + 1) + (Math.random() - 0.5) * 30;
-        const y = 36 + row * 34 + Math.random() * 18;
+        let x;
+        let y;
+        if (lite) {
+          const stagger = (row % 2) * (colW * 0.28);
+          x = colW * (col + 0.5) + stagger + (Math.random() - 0.5) * 12;
+          x = Math.max(w / 2 + 8, Math.min(width - w / 2 - 8, x));
+          y =
+            playTop +
+            rowH * (row + 0.5) +
+            (Math.random() - 0.5) * Math.min(14, rowH * 0.3);
+        } else {
+          x = (width / (cols + 1)) * (col + 1) + (Math.random() - 0.5) * 30;
+          y = 36 + row * 34 + Math.random() * 18;
+        }
 
         const opts = {
           restitution: 0.2,
           friction: 0.45,
-          frictionAir: lite ? 0.08 : 0.045,
+          frictionAir: lite ? 0.16 : 0.045,
           density: 0.0018,
           sleepThreshold: lite ? 30 : 60,
           label: node.dataset.id,
